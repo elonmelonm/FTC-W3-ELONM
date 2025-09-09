@@ -12,13 +12,13 @@ function App() {
   return (
     <>
       <HeaderHero />
-      <WhatsNew />
+      {/* <WhatsNew />
       <OneMoreFriend />
       <OurProducts />
       <PetSellers />
       <Adoption />
       <Knowledge />
-      <Footer />
+      <Footer /> */}
     </>
   )
 }
