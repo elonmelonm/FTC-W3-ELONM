@@ -1,13 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Adoption } from "./components/Adoption"
+import { Footer } from "./components/Footer"
+import { HeaderHero } from "./components/HeaderHero"
+import { Knowledge } from "./components/Knowledge"
+import { OneMoreFriend } from "./components/OneMoreFriend"
+import { OurProducts } from "./components/OurProducts"
+import { PetSellers } from "./components/PetSellers"
+import { WhatsNew } from "./components/WhatsNew"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <p className='bg-red-500'>Me voilà</p>
+      <HeaderHero />
+      <WhatsNew />
+      <OneMoreFriend />
+      <OurProducts />
+      <PetSellers />
+      <Adoption />
+      <Knowledge />
+      <Footer />
     </>
   )
 }
