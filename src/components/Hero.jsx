@@ -2,9 +2,9 @@ import Image from '../assets/035a16de8e1aa9a0522d0cebb4144a5ceda0344a.png'
 import Rectangle2 from '../assets/Rectangle 2.png'
 import Logo from '../assets/Frame.png'
 
-export function HeaderHero() {
+export function Hero() {
   return (
-    <div className="relative items-center font-[var(--font-gilroy)] overflow-hidden bg-brand-gradient w-[414px] md:w-full min-h-[623p] min-h-[794px] lg:w-full lg:min-h-[695px] rounded-b-[20px] ">
+    <div className="relative z-0 items-center font-[var(--font-gilroy)] overflow-hidden bg-brand-gradient w-[414px] md:w-full min-h-[623p] min-h-[794px] lg:w-full lg:min-h-[695px] rounded-b-[20px] ">
         {/* rectangle9 */}
         <span className="w-[634.99px] h-[634.99px] bg-secondary rounded-[99px] rotate-[25.23deg] absolute top-[-597px] left-[-235px] z-0 "></span>
         {/* rectangle3 */}
@@ -26,7 +26,7 @@ export function HeaderHero() {
             <img src={Image} alt="" />
         </span>
         {/* header en desktop */}
-        <header className="hidden xl:flex lg:flex-row lg:justify-between h-[100px] bg-transparent px-[130px] py-7 ">
+        {/* <header className="hidden xl:flex lg:flex-row lg:justify-between h-[100px] bg-transparent px-[130px] py-7 ">
             <div className="flex items-center lg:w-[529px] h-10 gap-12 ">
                 <img className='w-[115px] z-20 ' src={Logo} alt="" />
                 <div className='flex w-[366px] h-6 gap-12 items-center '>
@@ -66,10 +66,10 @@ export function HeaderHero() {
                     </svg>
                 </div>
             </div>
-        </header>
+        </header> */}
 
         {/* header en mobile & tablet */}
-        <header className='flex lg:hidden items-center justify-between h-[57px] bg-transparent absolute top-[33px] w-full pr-3.5 pl-2.5 pt-0.5 md:px-16'>
+        {/* <header className='flex lg:hidden items-center justify-between h-[57px] bg-transparent absolute top-[33px] w-full pr-3.5 pl-2.5 pt-0.5 md:px-16'>
             <span>
                 <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6.6665 23.1667H25.3332M6.6665 16.5H25.3332M6.6665 9.83334H25.3332" stroke="#00171F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -81,8 +81,9 @@ export function HeaderHero() {
                     <path d="M22.6771 21.061L18.4131 16.8283C20.0682 14.763 20.8698 12.1416 20.6529 9.5031C20.436 6.86457 19.2172 4.40946 17.2471 2.64261C15.277 0.875762 12.7054 -0.0685392 10.0609 0.00387725C7.41647 0.0762937 4.90025 1.15992 3.02965 3.03195C1.15904 4.90398 0.0762357 7.42211 0.0038743 10.0686C-0.0684871 12.715 0.875097 15.2886 2.64061 17.2602C4.40612 19.2318 6.85935 20.4515 9.49588 20.6686C12.1324 20.8856 14.7518 20.0835 16.8155 18.4271L21.045 22.6598C21.1519 22.7676 21.279 22.8531 21.419 22.9115C21.5591 22.9699 21.7093 23 21.861 23C22.0128 23 22.163 22.9699 22.303 22.9115C22.4431 22.8531 22.5702 22.7676 22.6771 22.6598C22.8842 22.4453 23 22.1587 23 21.8604C23 21.5621 22.8842 21.2755 22.6771 21.061ZM10.3679 18.4271C8.77668 18.4271 7.22122 17.9549 5.89819 17.0702C4.57516 16.1855 3.54398 14.928 2.93506 13.4569C2.32614 11.9857 2.16681 10.3668 2.47724 8.80501C2.78767 7.24321 3.5539 5.8086 4.67904 4.6826C5.80419 3.5566 7.23771 2.78979 8.79833 2.47912C10.3589 2.16846 11.9766 2.3279 13.4466 2.93729C14.9167 3.54668 16.1732 4.57864 17.0572 5.90267C17.9412 7.2267 18.4131 8.78335 18.4131 10.3757C18.4131 12.5111 17.5655 14.559 16.0567 16.0689C14.5479 17.5788 12.5016 18.4271 10.3679 18.4271Z" fill="#00171F"/>
                 </svg>
             </span>
-        </header>
+        </header> */}
 
+        {/* hero */}
         <div className="flex flex-col absolute w-[380px] xl:w-[480px] top-[139px] left-[16px] md:top-[139px] md:left-[216px] lg:top-[150px] lg:left-[125px] gap-6">
             <div className="flex flex-col w-full h-[102px] xl:h-[132px] gap-1">
                 <span className='text-primary-80 text-[46px] xl:text-[60px] h-[60px] xl:h-[68px] font-bold '>One More Friend</span>

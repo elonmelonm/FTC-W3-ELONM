@@ -2,7 +2,7 @@
 
 export function WhatsNew() {
   return (
-    <div className="flex flex-col min-h-[200px] px-[130px] py-[60px] gap-7 ">
+    <div className="relative flex flex-col min-h-[200px] px-[130px] py-[60px] gap-7 ">
         <div className="relative flex flex-row">
             <div className="flex flex-col w-[367px] h-[60px] gap-0.5 ">
                 <span className="w-[91px] h-[24px] text-[#000000] font-medium leading-[24px] tracking-[0] text-[16px]">Whats new?</span>
