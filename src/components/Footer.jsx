@@ -2,21 +2,21 @@ import Logo from '../assets/Frame.png'
 
 export function Footer() {
     return (
-        <div className="flex flex-col px-[130px] pt-[80px] pb-10 bg-brand-gradient gap-10">
-            <div className="flex flex-col border-b border-neutral-20 gap-10">
-                <div className="flex flex-row h-[136px] p-8 bg-primary rounded-[16px] gap-5 ">
-                    <p className="flex flex-row w-[389px] h-[72px] text-neutral-00 font-bold text-[24px] leading-[36px] ">
+        <div className="flex flex-col w-full h-[598px] lg:h-[440px] px-4 md:px-16 lg:px-16 xl:px-[130px] pt-10 lg:pt-[80px] pb-5 lg:pb-10 bg-brand-gradient gap-10">
+            <div className="flex flex-col h-[388px] lg:h-full border-b border-neutral-20 pb-10 lg:pb-0 gap-10">
+                <div className="flex flex-col lg:flex-row h-[244px] lg:h-[136px] p-4 lg:p-8 bg-primary rounded-[16px] gap-5 ">
+                    <p className="flex flex-row h-16 lg:w-[389px] lg:h-[72px] text-neutral-00 font-bold text-[24px] leading-[36px] ">
                         Register now so you don't miss our programs
                     </p>
-                    <div className="flex flex-row w-[707px] h-[72px] bg-white rounded-[14px] p-3 gap-3">
-                        <input className="py-3.5 px-7 w-[508px] border border-neutral-40 rounded-[8px] " type="text" placeholder="Enter your Email" />
-                        <button className='flex items-center bg-primary w-[163px] h-12 border rounded-[8px] px-7 gap-2 '>
+                    <div className="flex flex-col lg:flex-row w-full lg:w-[707px] h-[132px] lg:h-[72px] bg-white rounded-[14px] p-3 gap-3">
+                        <input className="py-3.5 px-7 w-full h-12 lg:h-full lg:w-2/3 xl:w-[508px] border border-neutral-40 rounded-[8px] " type="text" placeholder="Enter your Email" />
+                        <button className='flex justify-center items-center bg-primary w-full lg:w-[163px] h-12 border rounded-[8px] px-7 gap-2 '>
                             <span className='text-neutral-00 w-[102px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>Subcribe Now</span>
                         </button>
                     </div>
                 </div>
-                <div className="flex flex-row text-[16px] font-medium justify-between pb-10">
-                    <div className="flex flex-row gap-[60px]">
+                <div className="flex flex-col items-center lg:flex-row w-full h-16 lg:h-full text-[16px] font-medium justify-between pb-10 gap-5 lg:gap-0">
+                    <div className="flex flex-row gap-10 lg:gap-[60px]">
                         <span>Home</span>
                         <span>Category</span>
                         <span>About</span>
@@ -66,13 +66,20 @@ export function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-row h-10 items-center justify-between">
-                <p className="h-5 text-[14px] leading-[20px] font-medium text-neutral-60 ">© 2022 Monito. All rights reserved.</p>
-                <img src={Logo} alt="" />
-                <p className="flex flex-row w-[227px] h-5 text-[14px] justify-between leading-[20px] font-medium text-neutral-60 ">
+            <div className="flex flex-col lg:flex-row h-10 items-center justify-between gap-2 lg:gap-0">
+                {/* visible en mobile */}
+                <img className='lg:hidden mb-6' src={Logo} alt="" />
+                {/* invisible en mobile */}
+                <p className="hidden lg:block h-5 text-[14px] leading-[20px] font-medium text-neutral-60 ">© 2022 Monito. All rights reserved.</p>
+                {/* invisible en mobile */}
+                <img className='hidden lg:block' src={Logo} alt="" />
+
+                <p className="flex flex-row w-[227px] h-5 text-[12px] lg:text-[14px] justify-center lg:justify-between leading-[18px] lg:leading-[20px] font-medium text-neutral-60 gap-3 lg:gap-0 ">
                     <span>Terms of Service </span>        
                     <span>Privacy Policy</span>
                 </p>
+                {/* visible en mobile */}
+                <p className="block lg:hidden h-4 lg:h-5 text-[10px] lg:text-[14px] leading-[16px] lg:leading-[20px] lg:font-medium text-neutral-60 ">© 2022 Monito. All rights reserved.</p>
             </div>
         </div>
     )

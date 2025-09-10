@@ -11,7 +11,7 @@ import { WhatsNew } from "../components/WhatsNew";
 export function Home() {
     return (
         <>
-            <div className='absolute top-0 left-0 w-full h-full'>
+            {/* <div className='absolute top-0 left-0 w-full h-full'> */}
                 <Hero />
                 <WhatsNew />
                 <OneMoreFriend />
@@ -19,8 +19,8 @@ export function Home() {
                 <PetSellers />
                 <Adoption />
                 <Knowledge />
-                <Footer />
-            </div>
+                {/* <Footer /> */}
+            {/* </div> */}
         </>
     )
 }

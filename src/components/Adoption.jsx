@@ -2,13 +2,13 @@ import Image from "../assets/dcc94436190409de921d3586c62ceebc4d4890f1.png";
 
 export function Adoption() {
   return (
-    <div className="px-[130px] ">
+    <div className="md:px-16 xl:px-[130px] hidden lg:block">
         <div className="relative overflow-hidden rounded-[20px] h-[378px] bg-[#FFB775] ">
             <span className="w-[782.29px] h-[635px] bg-secondary-40 rounded-[99px] rotate-[-25.77deg] absolute top-[-220px] left-[-204px] "></span>
             <span className="w-[787.54px] h-[787.54px] bg-brand-gradient rounded-l-[99px] rotate-[151.75deg] opacity-[30%] absolute top-[158.72px] left-[594.78px] "></span>
-            <img className="w-[538.53px] h-[358.79px] scale-x-[-1] rotate-[60.93deg] absolute top-[36px] right-[22.48px] " src={Image} alt="" />
+            <img className="w-[538.53px] h-[358.79px] scale-x-[-1] rotate-[60.93deg] absolute top-[36px] right-[-52.48px] xl:right-[22.48px] " src={Image} alt="" />
 
-            <div className="flex flex-col absolute w-[403px] top-[64px] left-[85px] gap-2">
+            <div className="flex flex-col absolute w-[403px] top-[64px] lg:left-[45px] xl:left-[85px] gap-2">
                 <div className="flex flex-col w-[448px] h-[132px] gap-1">
                     <span className='flex flex-row text-primary items-center text-[52px] leading-[68px] h-[68px] font-bold gap-4'>
                         Adoption

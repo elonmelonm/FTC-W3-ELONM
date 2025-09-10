@@ -2,7 +2,7 @@
 
 export function OurProducts() {
   return (
-    <div className="flex flex-col min-h-[200px] px-[130px] py-[60px] gap-7 ">
+    <div className="lg:flex flex-col hidden min-h-[200px] md:px-16 xl:px-[130px] py-[60px] gap-7 ">
         <div className="relative flex flex-row">
             <div className="flex flex-col w-[367px] h-[60px] gap-0.5 ">
                 <span className="w-[326px] h-[24px] text-[#000000] font-medium leading-[24px] tracking-[0] text-[16px]">Hard to choose right products for your pets?</span>
@@ -17,7 +17,7 @@ export function OurProducts() {
                 </span>
             </button>
         </div>
-        <div className="grid grid-cols-4 gap-5 ">
+        <div className="grid lg:grid-cols-3 xl:grid-cols-4 gap-5 ">
             <div className="w-[280px] h-[446px] bg-neutral-00 p-2 ">
                 <img className="w-[264px] h-[264px] rounded-[10px] " src="" alt="" />
                 <div className="flex flex-col w-[264px] h-[166px] pt-2 px-2 pb-5 gap-2.5 ">

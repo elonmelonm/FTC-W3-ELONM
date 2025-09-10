@@ -8,7 +8,7 @@ import Icon7 from "../assets/petsellersicons/d46b554b89025a0019d8f8d0409d4bc87af
 
 export function PetSellers() {
     return (
-        <div className="flex flex-col h-[251px] px-[130px] py-[40px] gap-[15px] ">
+        <div className="lg:flex flex-col hidden h-[251px] md:px-16 xl:px-[130px] py-[40px] gap-[15px] ">
             <div className="relative flex flex-row justify-between h-[44px] ">
                 <div className="flex flex-row items-center w-[266px] h-[36px] gap-2 ">
                     <span className="w-[141px] h-[31px] text-[#000000] font-medium leading-[31px] tracking-[0] text-[16px]">Proud to be part of</span>

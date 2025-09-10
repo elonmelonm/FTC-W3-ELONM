@@ -4,7 +4,7 @@ import Logo from '../assets/Frame.png'
 
 export function Hero() {
   return (
-    <div className="relative z-0 items-center font-[var(--font-gilroy)] overflow-hidden bg-brand-gradient w-[414px] md:w-full min-h-[623p] min-h-[794px] lg:w-full lg:min-h-[695px] rounded-b-[20px] ">
+    <div className="relative z-0 items-center font-[var(--font-gilroy)] overflow-hidden bg-brand-gradient minw-[414px] md:w-full min-h-[623p] min-h-[794px] lg:w-full lg:min-h-[695px] rounded-b-[20px] ">
         {/* rectangle9 */}
         <span className="w-[634.99px] h-[634.99px] bg-secondary rounded-[99px] rotate-[25.23deg] absolute top-[-597px] left-[-235px] z-0 "></span>
         {/* rectangle3 */}
@@ -84,9 +84,9 @@ export function Hero() {
         </header> */}
 
         {/* hero */}
-        <div className="flex flex-col absolute w-[380px] xl:w-[480px] top-[139px] left-[16px] md:top-[139px] md:left-[216px] lg:top-[150px] lg:left-[125px] gap-6">
+        <div className="flex flex-col absolute sm:w-[380px] xl:w-[480px] top-[139px] left-[16px] md:top-[139px] md:left-[216px] lg:top-[150px] lg:left-[125px] gap-6">
             <div className="flex flex-col w-full h-[102px] xl:h-[132px] gap-1">
-                <span className='text-primary-80 text-[46px] xl:text-[60px] h-[60px] xl:h-[68px] font-bold '>One More Friend</span>
+                <span className='text-primary-80 text-[40px] md:text-[46px] xl:text-[60px] h-[60px] xl:h-[68px] font-bold '>One More Friend</span>
                 <span className='text-primary-80 text-[28px] xl:text-[46px] h-[38px] xl:h-[60px] font-bold '>Thousands more fun!</span>
             </div>
             <p className='w-full h-[54px] xl:h-[72px] text-[12px] xl:text-[16px] font-medium text-neutral-80 '>Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!</p>

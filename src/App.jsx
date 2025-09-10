@@ -1,35 +1,31 @@
 import { Link, Route, Routes } from "react-router-dom"
-import { Adoption } from "./components/Adoption"
 import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
-import { Knowledge } from "./components/Knowledge"
-import { OneMoreFriend } from "./components/OneMoreFriend"
-import { OurProducts } from "./components/OurProducts"
-import { PetSellers } from "./components/PetSellers"
-import { WhatsNew } from "./components/WhatsNew"
 import { Home } from "./pages/home"
 import { About } from "./pages/About"
+import { Category } from "./pages/Category"
+import { CategoryDetail } from "./pages/CategoryDetail"
 
 function App() {
 
   return (
-    <>
-      <Header />
+    <div className="flex flex-col min-h-screen">
+      {/* Header flottant au-dessus du contenu */}
+      <Header className="absolute top-0 left-0 w-full z-10" />
 
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes> */}
-      
-      {/* <HeaderHero /> */}
-      {/* <WhatsNew />
-      <OneMoreFriend />
-      <OurProducts />
-      <PetSellers />
-      <Adoption />
-      <Knowledge />
-      <Footer /> */}
-    </>
+      {/* Pages */}
+      <main className="flex-1 relative z-0">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/category-detail" element={<CategoryDetail />} />
+        </Routes>
+      </main>
+
+      {/* Footer */}
+      <Footer />
+    </div>
   )
 }
 

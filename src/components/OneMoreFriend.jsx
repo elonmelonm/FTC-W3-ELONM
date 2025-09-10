@@ -2,13 +2,13 @@ import Image from "../assets/cc4b282612bf9db02e233aa64a34946d9a9aed4d.png";
 
 export function OneMoreFriend() {
   return (
-    <div className="px-[130px] ">
+    <div className="md:px-16 xl:px-[130px]  ">
         <div className="relative overflow-hidden rounded-[20px] h-[378px] bg-primary ">
-            <span className="w-[787.54px] h-[787.54px] bg-primary-80 rounded-t-[99px] rotate-[28.25deg] absolute top-[180px] left-[-201.28px] "></span>
-            <span className="w-[787.54px] h-[787.54px] bg-secondary-40 rounded-b-[99px] rotate-[25.23deg] absolute top-[-360px] left-[606px] "></span>
-            <img className="w-[513px] h-[342px] absolute top-[36px] left-[20px] " src={Image} alt="" />
+            <span className="w-[787.54px] h-[787.54px] bg-primary-80 rounded-t-[99px] rotate-[28.25deg] absolute top-[180px] left-[-401.28px] xl:left-[-201.28px] "></span>
+            <span className="w-[787.54px] h-[787.54px] bg-secondary-40 rounded-b-[99px] rotate-[25.23deg] absolute top-[-360px] left-[406px] xl:left-[606px] "></span>
+            <img className="w-[513px] h-[342px] absolute top-[36px] left-[-40px] xl:left-[20px] " src={Image} alt="" />
 
-            <div className="flex flex-col text-end absolute w-[403px] top-[64px] right-[85px] gap-2">
+            <div className="flex flex-col text-end absolute w-[403px] top-[64px] right-[55px] xl:right-[85px] gap-2">
                 <div className="flex flex-col text-end w-[413px] h-[132px] gap-1">
                     <span className='text-primary text-[52px] leading-[68px] h-[68px] font-bold '>One More Friend</span>
                     <span className='text-primary text-[36px] leading-[54px] h-[60px] font-bold '>Thousands more fun!</span>

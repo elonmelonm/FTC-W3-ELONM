@@ -2,18 +2,19 @@ import { Link, Route, Routes } from 'react-router-dom'
 import Logo from '../assets/Frame.png'
 import { Home } from '../pages/home'
 import { About } from '../pages/About'
+import { Footer } from './Footer'
 
 export function Header() {
     return (
         <>
 
             {/* header en desktop */}
-            <header className="relative z-10 hidden xl:flex lg:flex-row lg:justify-between h-[100px] bg-transparent px-[130px] py-7 ">
+            <header className="absolute top-0 left-0 z-10 hidden xl:flex lg:flex-row lg:justify-between h-[100px] bg-transparent px-[130px] py-7 ">
                 <div className="flex items-center lg:w-[529px] h-10 gap-12 ">
                     <img className='w-[115px] z-20 ' src={Logo} alt="" />
                     <div className='flex w-[366px] h-6 gap-12 items-center '>
                         <Link to="/" className='w-11 h-6 text-primary font-bold size-4 '>Home</Link>
-                        <div className='w-[71px] h-6 text-primary font-bold size-4 '>Category</div>
+                        <Link to="/category" className='w-[71px] h-6 text-primary font-bold size-4 '>Category</Link>
                         <Link to="/about" className='w-[46px] h-6 text-primary font-bold size-4 '>About</Link>
                         <div className='w-[61px] h-6 text-primary font-bold size-4 '>Contact</div>
                     </div>
@@ -51,7 +52,7 @@ export function Header() {
             </header>
 
             {/* header en mobile & tablet */}
-            <header className='flex lg:hidden items-center justify-between h-[57px] bg-transparent absolute top-[33px] w-full pr-3.5 pl-2.5 pt-0.5 md:px-16'>
+            <header className='flex xl:hidden z-10 items-center justify-between h-[57px] bg-transparent absolute top-[33px] w-full pr-3.5 pl-2.5 pt-0.5 md:px-16'>
                 <span>
                     <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6.6665 23.1667H25.3332M6.6665 16.5H25.3332M6.6665 9.83334H25.3332" stroke="#00171F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -64,10 +65,6 @@ export function Header() {
                     </svg>
                 </span>
             </header>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-            </Routes>
         </>
     )
 }
