@@ -28,6 +28,14 @@
 
   --bg-gradient-brand: linear-gradient(102.87deg, #FCEED5 6.43%, #FCEED5 78.33%, #FFE7BA 104.24%);
 
+  --bg-split: linear-gradient(
+    90deg,
+    #242B33 0%,
+    #242B33 52.59%,
+    #D7D7D7 52.6%,
+    #D2D2D2 100%
+  );
+
   --font-gilroy: "Gilroy", sans-serif;
 }
 
@@ -58,4 +66,8 @@
 
 @utility bg-brand-gradient {
   background: var(--bg-gradient-brand);
+}
+
+@utility bg-split {
+  background: var(--bg-split);
 }
