@@ -1,36 +1,110 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import Image from "../assets/ed983856e3a6954a2b20e00d7381454e58aa5f21.png";
+import { animals, lovelycustomers } from "../data";
+import { useEffect, useState } from "react";
 
 export function CategoryDetail() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [animal, setAnimal] = useState(location.state?.animal || null);
+
+
+
+    useEffect(() => {
+    if (location.state?.animal) {
+      setAnimal(location.state.animal);
+      setSelectedImage(null); // Réinitialiser l'image sélectionnée
+    }
+  }, [location.state]);
+
+  const mainImage = selectedImage !== null ? animal.gallery[selectedImage] : animal.image;
+
+  const handleAnimalClick = (newAnimal) => {
+    navigate('/category-detail', { 
+      state: { animal: newAnimal }
+    });
+  };
+
+    if (!animal) {
+        return <div>Animal non trouvé</div>;
+    }
+
   return (
     <div className="xl:mt-[100px] ">
       <div className="flex xl:hidden flex-col mb-2.5 gap-3">
-        <img className="xl:max-w-[560px] h-[476px] " src={Image} alt="" />
+        <img className="xl:max-w-[560px] h-[476px] " src={mainImage} alt="" />
         <div className='flex xl:hidden z-10 items-center justify-between h-[57px] bg-transparent absolute top-[230px] w-full pr-3.5 pl-2.5 pt-0.5 md:px-16'>
-            <button className="rounded-full bg-[#FFFFFF66] opacity-[40%]">
+            <button className="rounded-full bg-[#FFFFFF66] opacity-[40%]" 
+              onClick={() => {
+                if (animal.gallery && animal.gallery.length > 0) {
+                  const currentIndex = selectedImage !== null ? selectedImage : -1;
+                  const newIndex = currentIndex > 0 ? currentIndex - 1 : animal.gallery.length - 1;
+                  setSelectedImage(newIndex);
+                }
+              }}
+            >
               <svg width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13 15L10 12L13 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <button className="rounded-full bg-[#FFFFFF66] opacity-[40%]">
+            <button className="rounded-full bg-[#FFFFFF66] opacity-[40%]"
+              onClick={() => {
+                if (animal.gallery && animal.gallery.length > 0) {
+                  const currentIndex = selectedImage !== null ? selectedImage : -1;
+                  const newIndex = currentIndex < animal.gallery.length - 1 ? currentIndex + 1 : 0;
+                  setSelectedImage(newIndex);
+                }
+              }}
+            >
               <svg width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11 9L14 12L11 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
           </div>
         <div className="flex flex-row pl-4 overflow-x-hidden gap-3">
-          <img src={Image} alt="" className="max-w-[94px] h-[94px] border-[3px] rounded-[6px] border-secondary " />
-          <img src={Image} alt="" className="max-w-[94px] h-[94px] rounded-[6px] " />
-          <img src={Image} alt="" className="max-w-[94px] h-[94px] rounded-[6px] " />
+          {animal.gallery && animal.gallery.map((image, index) => (
+           <div 
+              key={index} 
+              className={`cursor-pointer rounded-[6px] overflow-hidden ${
+                index === selectedImage 
+                  ? "border-[3px] border-secondary" 
+                  : "border-[3px] border-transparent"
+              }`}
+              onClick={() => setSelectedImage(index)}
+            >
+              <img 
+                src={image} 
+                alt="" 
+                className="max-w-[94px] h-[94px] object-cover"
+              />
+            </div>
+          ))}
         </div>
       </div>
       <div className="flex flex-col px-4 md:px-16 xl:px-[130px] gap-5 ">
         <div className="xl:py-[22px] xl:pl-5 xl:pr-[49px] flex flex-col xl:flex-row gap-[34px] xl:border border-neutral-10 rounded-[20px]  ">
           <div className="flex flex-col gap-[17px] ">
             <div className="hidden xl:flex overflow-x-hidden flex-col mb-2.5 gap-3">
-              <img className="xl:max-w-[560px] h-[476px] rounded-[10px] " src={Image} alt="" />
+              <img className="xl:max-w-[560px] h-[476px] rounded-[10px] " src={mainImage} alt="" />
               <div className="flex flex-row gap-3">
-                <img src={Image} alt="" className="max-w-[94px] h-[94px] border-[3px] rounded-[6px] border-secondary " />
-                <img src={Image} alt="" className="max-w-[94px] h-[94px] rounded-[6px] " />
+                {animal.gallery && animal.gallery.map((image, index) => (
+                <div 
+                    key={index} 
+                    className={`cursor-pointer rounded-[6px] overflow-hidden ${
+                      index === selectedImage 
+                        ? "border-[3px] border-secondary" 
+                        : "border-[3px] border-transparent"
+                    }`}
+                    onClick={() => setSelectedImage(index)}
+                  >
+                    <img 
+                      src={image} 
+                      alt="" 
+                      className="max-w-[94px] h-[94px] object-cover"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
             <div className="hidden xl:flex flex-row w-full h-12 bg-brand-gradient py-[9px] rounded-[10px] px-3 justify-between gap-[9px] ">
@@ -184,10 +258,10 @@ export function CategoryDetail() {
             </div>
             <div className="flex flex-col w-[302px] h-[96px] gap-1.5">
               <div className="flex flex-col gap-0.5">
-                <span className="hidden xl:block h-5 text-neutral-40 leading-5 font-medium text-[14px] ">SKU #1000078</span>
-                <span className="h-9 text-neutral-100 leading-9 font-bold text-[24px] ">Shiba Inu Sepia</span>
+                <span className="hidden xl:block h-5 text-neutral-40 leading-5 font-medium text-[14px] ">SKU #{animal.sku}</span>
+                <span className="h-9 text-neutral-100 leading-9 font-bold text-[24px] ">{animal.name}</span>
               </div>
-              <span className="h-8 text-neutral-100 leading-8 font-bold text-[20px] ">34.000.000 VND</span>
+              <span className="h-8 text-neutral-100 leading-8 font-bold text-[20px] ">{animal.price}</span>
             </div>
             {/* les buttons */}
             <div className="flex flex-row md:w-[373px] gap-2 md:gap-[18px]">
@@ -221,7 +295,7 @@ export function CategoryDetail() {
                   <span className="text-neutral-60 leading-5 text-[14px] font-medium">SKU</span>
                 </div>
                 <div className="flex flex-row w-[323px] h-[26px] px-[11px] pt-1 pb-0.5 gap-2.5 ">
-                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: #1000078</span>
+                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: #{animal.sku}</span>
                 </div>
               </div>
               <div className="flex flex-row h-[42px] border-b border-neutral-10 py-2 ">
@@ -229,7 +303,7 @@ export function CategoryDetail() {
                   <span className="text-neutral-60 leading-5 text-[14px] font-medium">Gender</span>
                 </div>
                 <div className="flex flex-row w-[323px] h-[26px] px-[11px] pt-1 pb-0.5 gap-2.5 ">
-                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: Female</span>
+                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: {animal.gender}</span>
                 </div>
               </div>
               <div className="flex flex-row h-[42px] border-b border-neutral-10 py-2 ">
@@ -237,7 +311,7 @@ export function CategoryDetail() {
                   <span className="text-neutral-60 leading-5 text-[14px] font-medium">Age</span>
                 </div>
                 <div className="flex flex-row w-[323px] h-[26px] px-[11px] pt-1 pb-0.5 gap-2.5 ">
-                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: 2 months</span>
+                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: {animal.age}</span>
                 </div>
               </div>
               <div className="flex flex-row h-[42px] border-b border-neutral-10 py-2 ">
@@ -245,7 +319,7 @@ export function CategoryDetail() {
                   <span className="text-neutral-60 leading-5 text-[14px] font-medium">Size</span>
                 </div>
                 <div className="flex flex-row w-[323px] h-[26px] px-[11px] pt-1 pb-0.5 gap-2.5 ">
-                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: Small</span>
+                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: {animal.size}</span>
                 </div>
               </div>
               <div className="flex flex-row h-[42px] border-b border-neutral-10 py-2 ">
@@ -253,7 +327,7 @@ export function CategoryDetail() {
                   <span className="text-neutral-60 leading-5 text-[14px] font-medium">Color</span>
                 </div>
                 <div className="flex flex-row w-[323px] h-[26px] px-[11px] pt-1 pb-0.5 gap-2.5 ">
-                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: Appricot & Tan</span>
+                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: {animal.color}</span>
                 </div>
               </div>
               <div className="flex flex-row h-[42px] border-b border-neutral-10 py-2 ">
@@ -261,7 +335,7 @@ export function CategoryDetail() {
                   <span className="text-neutral-60 leading-5 text-[14px] font-medium">Vaccinated</span>
                 </div>
                 <div className="flex flex-row w-[323px] h-[26px] px-[11px] pt-1 pb-0.5 gap-2.5 ">
-                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: Yes</span>
+                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: {animal.vaccinated ? 'Yes' : 'No'}</span>
                 </div>
               </div>
               <div className="flex flex-row h-[42px] border-b border-neutral-10 py-2 ">
@@ -269,7 +343,7 @@ export function CategoryDetail() {
                   <span className="text-neutral-60 leading-5 text-[14px] font-medium">Dewormed</span>
                 </div>
                 <div className="flex flex-row w-[323px] h-[26px] px-[11px] pt-1 pb-0.5 gap-2.5 ">
-                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: Yes</span>
+                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: {animal.dewormed ? 'Yes' : 'No'}</span>
                 </div>
               </div>
               <div className="flex flex-row h-[42px] border-b border-neutral-10 py-2 ">
@@ -277,7 +351,7 @@ export function CategoryDetail() {
                   <span className="text-neutral-60 leading-5 text-[14px] font-medium">Cert</span>
                 </div>
                 <div className="flex flex-row w-[323px] h-[26px] px-[11px] pt-1 pb-0.5 gap-2.5 ">
-                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: Yes (MKA)</span>
+                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: {animal.cert ? 'Yes (MKA)' : 'No'} </span>
                 </div>
               </div>
               <div className="flex flex-row h-[42px] border-b border-neutral-10 py-2 ">
@@ -285,7 +359,7 @@ export function CategoryDetail() {
                   <span className="text-neutral-60 leading-5 text-[14px] font-medium">Microchip</span>
                 </div>
                 <div className="flex flex-row w-[323px] h-[26px] px-[11px] pt-1 pb-0.5 gap-2.5 ">
-                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: Yes</span>
+                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: {animal.microchip ? 'Yes' : 'No'}</span>
                 </div>
               </div>
               <div className="flex flex-row h-[42px] border-b border-neutral-10 py-2 ">
@@ -293,7 +367,7 @@ export function CategoryDetail() {
                   <span className="text-neutral-60 leading-5 text-[14px] font-medium">Location</span>
                 </div>
                 <div className="flex flex-row w-[323px] h-[26px] px-[11px] pt-1 pb-0.5 gap-2.5 ">
-                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: Vietnam</span>
+                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: {animal.location}</span>
                 </div>
               </div>
               <div className="flex flex-row h-[42px] border-b border-neutral-10 py-2 ">
@@ -301,7 +375,7 @@ export function CategoryDetail() {
                   <span className="text-neutral-60 leading-5 text-[14px] font-medium">Published Date</span>
                 </div>
                 <div className="flex flex-row w-[323px] h-[26px] px-[11px] pt-1 pb-0.5 gap-2.5 ">
-                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: 12-Oct-2022</span>
+                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: {animal.Publicate_date}</span>
                 </div>
               </div>
               <div className="flex flex-row min-h-[42px] border-b border-neutral-10 py-2 ">
@@ -309,10 +383,7 @@ export function CategoryDetail() {
                   <span className="text-neutral-60 leading-5 text-[14px] font-medium">Additional Information</span>
                 </div>
                 <div className="flex flex-row w-[323px] min-h-[26px] px-[11px] pt-1 pb-0.5 gap-2.5 ">
-                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: Pure breed Shih Tzu.
-                    Good body structure.
-                    With MKA cert and Microchip.
-                    Father from champion lineage.
+                  <span className="text-neutral-60 leading-5 text-[14px] font-medium">: {animal.Additionnal_Informations}
                   </span>
                 </div>
               </div>
@@ -386,11 +457,9 @@ export function CategoryDetail() {
         <div className="flex flex-col w-full h-[471px] pb-[26px] pl-4 pt-6 rounded-[20px] ">
           <span className="h-9 font-bold leading-9 mb-3 text-[24px] text-neutral-100 ">Our lovely customer</span>
           <div className="flex flex-row h-[340px] mb-6 overflow-x-hidden gap-3 ">
-            <img src={Image} alt="" className="w-[248px] h-full rounded-[10px] " />
-            <img src={Image} alt="" className="w-[248px] h-full rounded-[10px] " />
-            <img src={Image} alt="" className="w-[248px] h-full rounded-[10px] " />
-            <img src={Image} alt="" className="w-[248px] h-full rounded-[10px] " />
-            <img src={Image} alt="" className="w-[248px] h-full rounded-[10px] " />
+            {lovelycustomers.map((lovelycustomer, index) => (
+              <img key={index} src={lovelycustomer.image} alt="" className="w-[248px] h-full rounded-[10px] " />
+            ))}
           </div>
           <div className="flex flex-row justify-center">
             <div class="flex flex-row items-start gap-[6px] w-[97.5px] h-[9px]">
@@ -415,15 +484,18 @@ export function CategoryDetail() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 xl:gap-5 ">
-            <div className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 ">
-              <img className="min-w-[169px] h-[169px] xl:w-[264px] xl:h-[264px] rounded-[10px] " src="" alt="" />
+            {animals.map((animal, index) => (
+            <div key={index} className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 cursor-pointer"
+              onClick={() => handleAnimalClick(animal)}
+            >
+              <img className="min-w-[169px] h-[169px] xl:w-[264px] xl:h-[264px] rounded-[10px] " src={animal.image} alt="" />
               <div className="min-w-[169px] h-[124px] xl:w-[264px] xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
                 <div className="flex flex-col min-w-[161px] h-[84px] xl:w-[248px] xl:h-[70px] gap-1 ">
-                  <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">MO231 - Pomeranian White</span>
+                  <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">{animal.sku} - {animal.name}</span>
                   <span className="flex flex-col xl:flex-row xl:items-center w-full h-[40px] xl:h-[24px] text-neutral-60  leading-[24px] tracking-[0] text-[16px] gap-1 xl:gap-0 ">
                     <span className="flex items-center h-[18px] gap-1.5">
                       <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Gene: </span>
-                      <span className="font-bold text-[12px] xl:text-[16px] ">Male</span>
+                      <span className="font-bold text-[12px] xl:text-[16px] ">{animal.gender}</span>
                     </span>
                     <span className="font-bold h-[18px] items-center hidden xl:flex p-2">
                       <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -432,85 +504,14 @@ export function CategoryDetail() {
                     </span>
                     <span className="flex items-center h-[18px] gap-1.5 ">
                       <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Age: </span>
-                      <span className="font-bold text-[12px] xl:text-[16px] ">02 months</span>
+                      <span className="font-bold text-[12px] xl:text-[16px] ">{animal.age}</span>
                     </span>
                   </span>
-                  <span className="w-full h-[24px] text-neutral-100 font-bold leading-[24px] xl:leading-[20px] tracking-[0] text-[16px] xl:text-[14px]">6.900.000 VND</span>
+                  <span className="w-full h-[24px] text-neutral-100 font-bold leading-[24px] xl:leading-[20px] tracking-[0] text-[16px] xl:text-[14px]">{animal.price}</span>
                 </div>
               </div>
             </div>
-            <div className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 ">
-              <img className="min-w-[169px] h-[169px] xl:w-[264px] xl:h-[264px] rounded-[10px] " src="" alt="" />
-              <div className="min-w-[169px] h-[124px] xl:w-[264px] xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
-                <div className="flex flex-col min-w-[161px] h-[84px] xl:w-[248px] xl:h-[70px] gap-1 ">
-                  <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">MO231 - Pomeranian White</span>
-                  <span className="flex flex-col xl:flex-row xl:items-center w-full h-[40px] xl:h-[24px] text-neutral-60  leading-[24px] tracking-[0] text-[16px] gap-1 xl:gap-0 ">
-                    <span className="flex items-center h-[18px] gap-1.5">
-                      <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Gene: </span>
-                      <span className="font-bold text-[12px] xl:text-[16px] ">Male</span>
-                    </span>
-                    <span className="font-bold h-[18px] items-center hidden xl:flex p-2">
-                      <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2.95813 2.748C3.22213 2.484 3.35413 2.16 3.35413 1.788C3.35413 1.416 3.22213 1.092 2.95813 0.84C2.70613 0.576 2.38213 0.444 2.01013 0.444C1.63813 0.444 1.31413 0.576 1.05013 0.84C0.786125 1.092 0.654125 1.416 0.654125 1.788C0.654125 2.16 0.786125 2.484 1.05013 2.748C1.31413 3.012 1.63813 3.144 2.01013 3.144C2.38213 3.144 2.70613 3.012 2.95813 2.748Z" fill="#667479" />
-                      </svg>
-                    </span>
-                    <span className="flex items-center h-[18px] gap-1.5 ">
-                      <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Age: </span>
-                      <span className="font-bold text-[12px] xl:text-[16px] ">02 months</span>
-                    </span>
-                  </span>
-                  <span className="w-full h-[24px] text-neutral-100 font-bold leading-[24px] xl:leading-[20px] tracking-[0] text-[16px] xl:text-[14px]">6.900.000 VND</span>
-                </div>
-              </div>
-            </div>
-            <div className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 ">
-              <img className="min-w-[169px] h-[169px] xl:w-[264px] xl:h-[264px] rounded-[10px] " src={Image} alt="" />
-              <div className="min-w-[169px] h-[124px] xl:w-[264px] xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
-                <div className="flex flex-col min-w-[161px] h-[84px] xl:w-[248px] xl:h-[70px] gap-1 ">
-                  <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">MO231 - Pomeranian White</span>
-                  <span className="flex flex-col xl:flex-row xl:items-center w-full h-[40px] xl:h-[24px] text-neutral-60  leading-[24px] tracking-[0] text-[16px] gap-1 xl:gap-0 ">
-                    <span className="flex items-center h-[18px] gap-1.5">
-                      <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Gene: </span>
-                      <span className="font-bold text-[12px] xl:text-[16px] ">Male</span>
-                    </span>
-                    <span className="font-bold h-[18px] items-center hidden xl:flex p-2">
-                      <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2.95813 2.748C3.22213 2.484 3.35413 2.16 3.35413 1.788C3.35413 1.416 3.22213 1.092 2.95813 0.84C2.70613 0.576 2.38213 0.444 2.01013 0.444C1.63813 0.444 1.31413 0.576 1.05013 0.84C0.786125 1.092 0.654125 1.416 0.654125 1.788C0.654125 2.16 0.786125 2.484 1.05013 2.748C1.31413 3.012 1.63813 3.144 2.01013 3.144C2.38213 3.144 2.70613 3.012 2.95813 2.748Z" fill="#667479" />
-                      </svg>
-                    </span>
-                    <span className="flex items-center h-[18px] gap-1.5 ">
-                      <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Age: </span>
-                      <span className="font-bold text-[12px] xl:text-[16px] ">02 months</span>
-                    </span>
-                  </span>
-                  <span className="w-full h-[24px] text-neutral-100 font-bold leading-[24px] xl:leading-[20px] tracking-[0] text-[16px] xl:text-[14px]">6.900.000 VND</span>
-                </div>
-              </div>
-            </div>
-            <div className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 ">
-              <img className="min-w-[169px] h-[169px] xl:w-[264px] xl:h-[264px] rounded-[10px] " src={Image} alt="" />
-              <div className="min-w-[169px] h-[124px] xl:w-[264px] xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
-                <div className="flex flex-col min-w-[161px] h-[84px] xl:w-[248px] xl:h-[70px] gap-1 ">
-                  <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">MO231 - Pomeranian White</span>
-                  <span className="flex flex-col xl:flex-row xl:items-center w-full h-[40px] xl:h-[24px] text-neutral-60  leading-[24px] tracking-[0] text-[16px] gap-1 xl:gap-0 ">
-                    <span className="flex items-center h-[18px] gap-1.5">
-                      <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Gene: </span>
-                      <span className="font-bold text-[12px] xl:text-[16px] ">Male</span>
-                    </span>
-                    <span className="font-bold h-[18px] items-center hidden xl:flex p-2">
-                      <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2.95813 2.748C3.22213 2.484 3.35413 2.16 3.35413 1.788C3.35413 1.416 3.22213 1.092 2.95813 0.84C2.70613 0.576 2.38213 0.444 2.01013 0.444C1.63813 0.444 1.31413 0.576 1.05013 0.84C0.786125 1.092 0.654125 1.416 0.654125 1.788C0.654125 2.16 0.786125 2.484 1.05013 2.748C1.31413 3.012 1.63813 3.144 2.01013 3.144C2.38213 3.144 2.70613 3.012 2.95813 2.748Z" fill="#667479" />
-                      </svg>
-                    </span>
-                    <span className="flex items-center h-[18px] gap-1.5 ">
-                      <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Age: </span>
-                      <span className="font-bold text-[12px] xl:text-[16px] ">02 months</span>
-                    </span>
-                  </span>
-                  <span className="w-full h-[24px] text-neutral-100 font-bold leading-[24px] xl:leading-[20px] tracking-[0] text-[16px] xl:text-[14px]">6.900.000 VND</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

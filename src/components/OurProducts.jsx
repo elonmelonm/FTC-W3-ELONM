@@ -1,4 +1,4 @@
-
+import { products } from "../data"
 
 export function OurProducts() {
   return (
@@ -18,27 +18,34 @@ export function OurProducts() {
             </button>
         </div>
         <div className="grid lg:grid-cols-3 xl:grid-cols-4 gap-5 ">
-            <div className="w-[280px] h-[446px] bg-neutral-00 p-2 ">
-                <img className="w-[264px] h-[264px] rounded-[10px] " src="" alt="" />
+            {products.map((product, index) => (
+            <div key={index} className="w-[280px] h-[446px] bg-neutral-00 p-2 cursor-pointer ">
+                <img className="w-[264px] h-[264px] rounded-[10px] " src={product.image} alt="" />
                 <div className="flex flex-col w-[264px] h-[166px] pt-2 px-2 pb-5 gap-2.5 ">
                     <div className="flex flex-col w-[248px] h-[94px] gap-1 ">
-                        <span className="w-full h-[48px] text-neutral-100 font-bold leading-[24px] tracking-[0] text-[16px]">Reflex Plus Adult Cat Food Salmon</span>
+                        <span className="w-full h-[48px] text-neutral-100 font-bold leading-[24px] tracking-[0] text-[16px]">{product.name}</span>
                         <span className="flex items-center w-full h-[18px] text-neutral-60  leading-[24px] tracking-[0] text-[12px] gap-1">
                             <span className="flex items-center h-[18px] gap-1.5">
                                 <span className="text-[12px]">Product: </span>
-                                <span className="text-[12px] font-bold">Dog Food</span>
+                                <span className="text-[12px] font-bold">{product.product}</span>
                             </span>
-                            <span className="font-bold h-[18px] items-center flex p-2">
-                                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2.95813 2.748C3.22213 2.484 3.35413 2.16 3.35413 1.788C3.35413 1.416 3.22213 1.092 2.95813 0.84C2.70613 0.576 2.38213 0.444 2.01013 0.444C1.63813 0.444 1.31413 0.576 1.05013 0.84C0.786125 1.092 0.654125 1.416 0.654125 1.788C0.654125 2.16 0.786125 2.484 1.05013 2.748C1.31413 3.012 1.63813 3.144 2.01013 3.144C2.38213 3.144 2.70613 3.012 2.95813 2.748Z" fill="#667479"/>
-                                </svg>
-                            </span>
-                            <span className="flex items-center h-[18px] gap-1.5 ">
-                                <span>Size: </span>
-                                <span className="font-bold">385gm</span>
-                            </span>
+                            {product.size && (
+                                <>
+                                    <span className="font-bold h-[18px] items-center flex p-2">
+                                        <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.95813 2.748C3.22213 2.484 3.35413 2.16 3.35413 1.788C3.35413 1.416 3.22213 1.092 2.95813 0.84C2.70613 0.576 2.38213 0.444 2.01013 0.444C1.63813 0.444 1.31413 0.576 1.05013 0.84C0.786125 1.092 0.654125 1.416 0.654125 1.788C0.654125 2.16 0.786125 2.484 1.05013 2.748C1.31413 3.012 1.63813 3.144 2.01013 3.144C2.38213 3.144 2.70613 3.012 2.95813 2.748Z" fill="#667479"/>
+                                        </svg>
+                                    </span>
+                                    <span className="flex items-center h-[18px] gap-1.5 ">
+                                        
+                                            <span>Size: </span>
+                                            <span className="font-bold">{product.size}</span>
+                                        
+                                    </span>
+                                </>
+                            )}
                         </span>
-                        <span className="w-full h-[24px] text-neutral-100 font-bold leading-[20px] tracking-[0] text-[14px]">6.900.000 VND</span>
+                        <span className="w-full h-[24px] text-neutral-100 font-bold leading-[20px] tracking-[0] text-[14px]">{product.price}</span>
                     </div>
                     <span className="flex items-center bg-secondary-40 w-full h-[34px] rounded-[8px] px-2 pt-1.5 pb-1 text-primary-80  leading-[24px] tracking-[0] text-[12px] gap-0.5">
                         <span className="flex items-center h-[18px] gap-1.5">
@@ -61,11 +68,12 @@ export function OurProducts() {
                             </svg>
                         </span>
                         <span className="flex items-center h-[20px] text-[14px] font-bold ">
-                            <span>Free Toy & Free Shaker</span>
+                            <span>{product.gifts}</span>
                         </span>
                     </span>
                 </div>
             </div>
+            ))}
         </div>
     </div>
   )

@@ -20,7 +20,7 @@ export function OneMoreFriend() {
         </div>
         <div className="relative overflow-hidden rounded-[20px] h-[441px] lg:h-[378px] bg-brand-gradient ">
             {/* <span className="w-[787.54px] h-[787.54px] bg-primary-80 rounded-t-[99px] rotate-[28.25deg] lg:rotate-[28.25deg] absolute top-[550px] lg:top-[180px] left-[-201px] lg:left-[-401.28px] xl:left-[-201.28px] "></span> */}
-            <span className="w-[816.54px] h-[830.54px] bg-primary-80 rounded-b-[99px] rotate-[190.41deg] md:rotate-[380.41deg] lg:rotate-[70.23deg] absolute top-[330px] md:top-[-490px] lg:top-[-40px] left-[-255px] md:left-[-155px] lg:left-[406px] xl:left-[476px] "></span>
+            <span className="w-[816.54px] h-[830.54px] xl:h-[930.54px] bg-primary-80 rounded-b-[99px] rotate-[190.41deg] md:rotate-[380.41deg] lg:rotate-[70.23deg] absolute top-[330px] md:top-[-490px] lg:top-[-40px] left-[-255px] md:left-[-155px] lg:left-[406px] xl:left-[576px] "></span>
             <img className="w-[460px] h-[213px] lg:w-[500px] xl:w-[650px] lg:h-[301px] absolute top-[235px] lg:top-[77px] left-[-10px] lg:left-[-40px] xl:left-[20px] " src={Image} alt="" />
 
             <div className="flex flex-col md:text-center lg:text-end absolute w-[342px] lg:w-[403px] top-8 lg:top-[64px] sm:right-5 md:right-[155px] lg:right-[55px] xl:right-[85px] gap-3 lg:gap-2">

@@ -1,10 +1,21 @@
 import { useState } from "react";
-
+import { animals } from "../../data";
+import { useNavigate } from "react-router-dom";
 
 export function SmallDog() {
     const [selected, setSelected] = useState(null);
     const [selectedColor, setSelectedColor] = useState(null);
     const [selectedBreed, setSelectedBreed] = useState(null);
+    const navigate = useNavigate(); 
+
+    // Fonction pour gérer le clic sur un animal
+    const handleAnimalClick = (animal) => {
+        // Navigation vers la page de détail avec les données de l'animal
+        navigate('/category-detail', { 
+            state: { animal } // Passage des données via l'état de navigation
+        });
+    };
+
     return (
         <div className="pt-[35px] pb-[60px] px-4 md:px-16 xl:px-[130px] ">
             <div className="flex flex-col lg:flex-row gap-5">
@@ -137,32 +148,14 @@ export function SmallDog() {
                                         {/* <!-- Frame 76 : Min --> */}
                                         <div class="flex flex-col items-start py-2.5 gap-[10px] w-full h-[40px] mx-auto border-b border-[#EBEEEF]">
                                             <div class="flex flex-row justify-between items-center gap-[10px] w-[115px] h-[20px]">
-                                                {/* <!-- Min text --> */}
-                                                <span class="w-[23px] h-[20px] mx- font-[var(--font-gilroy)] font-medium text-[14px] leading-[20px] text-[#242B33] flex items-end">
-                                                    Min
-                                                </span>
-                                                {/* <!-- Arrow --> */}
-                                                <div class="flex items-center w-[14px] h-[14px] mx-">
-                                                    <svg class="w-[14px] h-[14px]" fill="none" viewBox="0 0 24 24">
-                                                        <path d="M8 10l4-4 4 4M16 14l-4 4-4-4" stroke="#242B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </div>
+                                                <input className="w-full h-[20px] font-[var(--font-gilroy)] font-medium text-[14px] leading-[20px] text-[#242B33] flex items-end" placeholder="Min" type="number" />
                                             </div>
                                         </div>
 
                                         {/* <!-- Frame 76 : Max --> */}
                                         <div class="flex flex-col items-start p-[10px] gap-[10px] w-[135px] h-[40px] mx-auto border-b border-[#EBEEEF]">
                                             <div class="flex flex-row justify-between items-center gap-[10px] w-[115px] h-[20px]">
-                                                {/* <!-- Max text --> */}
-                                                <span class="w-[28px] h-[20px] mx- font-[var(--font-gilroy)] font-medium text-[14px] leading-[20px] text-[#242B33] flex items-end">
-                                                    Max
-                                                </span>
-                                                {/* <!-- Arrow --> */}
-                                                <div class="flex items-center w-[14px] h-[14px] mx-">
-                                                    <svg class="w-[14px] h-[14px]" fill="none" viewBox="0 0 24 24">
-                                                        <path d="M8 10l4-4 4 4M16 14l-4 4-4-4" stroke="#242B33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </div>
+                                                <input className="w-full h-[20px] font-[var(--font-gilroy)] font-medium text-[14px] leading-[20px] text-[#242B33] flex items-end" placeholder="Max" type="number" />
                                             </div>
                                         </div>
                                     </div>
@@ -252,126 +245,34 @@ export function SmallDog() {
                     </div>
                     <div className="flex flex-col gap-10">
                         <div className="grid grid-cols-2 xl:grid-cols-3 gap-x-5 gap-y-[18px]">
-                            <div className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 ">
-                                <img className="min-w-[169px] h-[169px] xl:w-[264px] xl:h-[264px] rounded-[10px] " src="" alt="" />
-                                <div className="min-w-[169px] h-[124px] xl:w-[264px] xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
-                                    <div className="flex flex-col min-w-[161px] h-[84px] xl:w-[248px] xl:h-[70px] gap-1 ">
-                                        <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">MO231 - Pomeranian White</span>
-                                        <span className="flex flex-col xl:flex-row xl:items-center w-full h-[40px] xl:h-[24px] text-neutral-60  leading-[24px] tracking-[0] text-[16px] gap-1 xl:gap-0 ">
-                                            <span className="flex items-center h-[18px] gap-1.5">
-                                                <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Gene: </span>
-                                                <span className="font-bold text-[12px] xl:text-[16px] ">Male</span>
+                            {animals.map((animal, index) => (
+                                <div key={index} className="w-full h-[317px] xl:w-full xl:min-h-[378px] bg-neutral-00 p-2 cursor-pointer"
+                                    onClick={() => handleAnimalClick(animal)}
+                                >
+                                    <img className="min-w-[169px] h-[169px] xl:w-full xl:min-h-[264px] rounded-[10px] " src={animal.image} alt="" />
+                                    <div className="min-w-[169px] h-[124px] xl:w-[264px] xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
+                                        <div className="flex flex-col min-w-[161px] h-[84px] xl:w-[248px] xl:h-[70px] gap-1 ">
+                                            <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">{animal.sku} - {animal.name}</span>
+                                            <span className="flex flex-col xl:flex-row xl:items-center w-full h-[40px] xl:h-[24px] text-neutral-60  leading-[24px] tracking-[0] text-[16px] gap-1 xl:gap-0 ">
+                                                <span className="flex items-center h-[18px] gap-1.5">
+                                                    <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Gene: </span>
+                                                    <span className="font-bold text-[12px] xl:text-[16px] ">{animal.gender}</span>
+                                                </span>
+                                                <span className="font-bold h-[18px] items-center hidden xl:flex p-2">
+                                                    <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M2.95813 2.748C3.22213 2.484 3.35413 2.16 3.35413 1.788C3.35413 1.416 3.22213 1.092 2.95813 0.84C2.70613 0.576 2.38213 0.444 2.01013 0.444C1.63813 0.444 1.31413 0.576 1.05013 0.84C0.786125 1.092 0.654125 1.416 0.654125 1.788C0.654125 2.16 0.786125 2.484 1.05013 2.748C1.31413 3.012 1.63813 3.144 2.01013 3.144C2.38213 3.144 2.70613 3.012 2.95813 2.748Z" fill="#667479" />
+                                                    </svg>
+                                                </span>
+                                                <span className="flex items-center h-[18px] gap-1.5 ">
+                                                    <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Age: </span>
+                                                    <span className="font-bold text-[12px] xl:text-[16px] ">{animal.age}</span>
+                                                </span>
                                             </span>
-                                            <span className="font-bold h-[18px] items-center hidden xl:flex p-2">
-                                                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M2.95813 2.748C3.22213 2.484 3.35413 2.16 3.35413 1.788C3.35413 1.416 3.22213 1.092 2.95813 0.84C2.70613 0.576 2.38213 0.444 2.01013 0.444C1.63813 0.444 1.31413 0.576 1.05013 0.84C0.786125 1.092 0.654125 1.416 0.654125 1.788C0.654125 2.16 0.786125 2.484 1.05013 2.748C1.31413 3.012 1.63813 3.144 2.01013 3.144C2.38213 3.144 2.70613 3.012 2.95813 2.748Z" fill="#667479" />
-                                                </svg>
-                                            </span>
-                                            <span className="flex items-center h-[18px] gap-1.5 ">
-                                                <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Age: </span>
-                                                <span className="font-bold text-[12px] xl:text-[16px] ">02 months</span>
-                                            </span>
-                                        </span>
-                                        <span className="w-full h-[24px] text-neutral-100 font-bold leading-[24px] xl:leading-[20px] tracking-[0] text-[16px] xl:text-[14px]">6.900.000 VND</span>
+                                            <span className="w-full h-[24px] text-neutral-100 font-bold leading-[24px] xl:leading-[20px] tracking-[0] text-[16px] xl:text-[14px]">{animal.price}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 ">
-                                <img className="min-w-[169px] h-[169px] xl:w-[264px] xl:h-[264px] rounded-[10px] " src="" alt="" />
-                                <div className="min-w-[169px] h-[124px] xl:w-[264px] xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
-                                    <div className="flex flex-col min-w-[161px] h-[84px] xl:w-[248px] xl:h-[70px] gap-1 ">
-                                        <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">MO231 - Pomeranian White</span>
-                                        <span className="flex flex-col xl:flex-row xl:items-center w-full h-[40px] xl:h-[24px] text-neutral-60  leading-[24px] tracking-[0] text-[16px] gap-1 xl:gap-0 ">
-                                            <span className="flex items-center h-[18px] gap-1.5">
-                                                <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Gene: </span>
-                                                <span className="font-bold text-[12px] xl:text-[16px] ">Male</span>
-                                            </span>
-                                            <span className="font-bold h-[18px] items-center hidden xl:flex p-2">
-                                                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M2.95813 2.748C3.22213 2.484 3.35413 2.16 3.35413 1.788C3.35413 1.416 3.22213 1.092 2.95813 0.84C2.70613 0.576 2.38213 0.444 2.01013 0.444C1.63813 0.444 1.31413 0.576 1.05013 0.84C0.786125 1.092 0.654125 1.416 0.654125 1.788C0.654125 2.16 0.786125 2.484 1.05013 2.748C1.31413 3.012 1.63813 3.144 2.01013 3.144C2.38213 3.144 2.70613 3.012 2.95813 2.748Z" fill="#667479" />
-                                                </svg>
-                                            </span>
-                                            <span className="flex items-center h-[18px] gap-1.5 ">
-                                                <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Age: </span>
-                                                <span className="font-bold text-[12px] xl:text-[16px] ">02 months</span>
-                                            </span>
-                                        </span>
-                                        <span className="w-full h-[24px] text-neutral-100 font-bold leading-[24px] xl:leading-[20px] tracking-[0] text-[16px] xl:text-[14px]">6.900.000 VND</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 ">
-                                <img className="min-w-[169px] h-[169px] xl:w-[264px] xl:h-[264px] rounded-[10px] " src="" alt="" />
-                                <div className="min-w-[169px] h-[124px] xl:w-[264px] xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
-                                    <div className="flex flex-col min-w-[161px] h-[84px] xl:w-[248px] xl:h-[70px] gap-1 ">
-                                        <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">MO231 - Pomeranian White</span>
-                                        <span className="flex flex-col xl:flex-row xl:items-center w-full h-[40px] xl:h-[24px] text-neutral-60  leading-[24px] tracking-[0] text-[16px] gap-1 xl:gap-0 ">
-                                            <span className="flex items-center h-[18px] gap-1.5">
-                                                <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Gene: </span>
-                                                <span className="font-bold text-[12px] xl:text-[16px] ">Male</span>
-                                            </span>
-                                            <span className="font-bold h-[18px] items-center hidden xl:flex p-2">
-                                                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M2.95813 2.748C3.22213 2.484 3.35413 2.16 3.35413 1.788C3.35413 1.416 3.22213 1.092 2.95813 0.84C2.70613 0.576 2.38213 0.444 2.01013 0.444C1.63813 0.444 1.31413 0.576 1.05013 0.84C0.786125 1.092 0.654125 1.416 0.654125 1.788C0.654125 2.16 0.786125 2.484 1.05013 2.748C1.31413 3.012 1.63813 3.144 2.01013 3.144C2.38213 3.144 2.70613 3.012 2.95813 2.748Z" fill="#667479" />
-                                                </svg>
-                                            </span>
-                                            <span className="flex items-center h-[18px] gap-1.5 ">
-                                                <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Age: </span>
-                                                <span className="font-bold text-[12px] xl:text-[16px] ">02 months</span>
-                                            </span>
-                                        </span>
-                                        <span className="w-full h-[24px] text-neutral-100 font-bold leading-[24px] xl:leading-[20px] tracking-[0] text-[16px] xl:text-[14px]">6.900.000 VND</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 ">
-                                <img className="min-w-[169px] h-[169px] xl:w-[264px] xl:h-[264px] rounded-[10px] " src="" alt="" />
-                                <div className="min-w-[169px] h-[124px] xl:w-[264px] xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
-                                    <div className="flex flex-col min-w-[161px] h-[84px] xl:w-[248px] xl:h-[70px] gap-1 ">
-                                        <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">MO231 - Pomeranian White</span>
-                                        <span className="flex flex-col xl:flex-row xl:items-center w-full h-[40px] xl:h-[24px] text-neutral-60  leading-[24px] tracking-[0] text-[16px] gap-1 xl:gap-0 ">
-                                            <span className="flex items-center h-[18px] gap-1.5">
-                                                <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Gene: </span>
-                                                <span className="font-bold text-[12px] xl:text-[16px] ">Male</span>
-                                            </span>
-                                            <span className="font-bold h-[18px] items-center hidden xl:flex p-2">
-                                                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M2.95813 2.748C3.22213 2.484 3.35413 2.16 3.35413 1.788C3.35413 1.416 3.22213 1.092 2.95813 0.84C2.70613 0.576 2.38213 0.444 2.01013 0.444C1.63813 0.444 1.31413 0.576 1.05013 0.84C0.786125 1.092 0.654125 1.416 0.654125 1.788C0.654125 2.16 0.786125 2.484 1.05013 2.748C1.31413 3.012 1.63813 3.144 2.01013 3.144C2.38213 3.144 2.70613 3.012 2.95813 2.748Z" fill="#667479" />
-                                                </svg>
-                                            </span>
-                                            <span className="flex items-center h-[18px] gap-1.5 ">
-                                                <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Age: </span>
-                                                <span className="font-bold text-[12px] xl:text-[16px] ">02 months</span>
-                                            </span>
-                                        </span>
-                                        <span className="w-full h-[24px] text-neutral-100 font-bold leading-[24px] xl:leading-[20px] tracking-[0] text-[16px] xl:text-[14px]">6.900.000 VND</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 ">
-                                <img className="min-w-[169px] h-[169px] xl:w-[264px] xl:h-[264px] rounded-[10px] " src="" alt="" />
-                                <div className="min-w-[169px] h-[124px] xl:w-[264px] xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
-                                    <div className="flex flex-col min-w-[161px] h-[84px] xl:w-[248px] xl:h-[70px] gap-1 ">
-                                        <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">MO231 - Pomeranian White</span>
-                                        <span className="flex flex-col xl:flex-row xl:items-center w-full h-[40px] xl:h-[24px] text-neutral-60  leading-[24px] tracking-[0] text-[16px] gap-1 xl:gap-0 ">
-                                            <span className="flex items-center h-[18px] gap-1.5">
-                                                <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Gene: </span>
-                                                <span className="font-bold text-[12px] xl:text-[16px] ">Male</span>
-                                            </span>
-                                            <span className="font-bold h-[18px] items-center hidden xl:flex p-2">
-                                                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M2.95813 2.748C3.22213 2.484 3.35413 2.16 3.35413 1.788C3.35413 1.416 3.22213 1.092 2.95813 0.84C2.70613 0.576 2.38213 0.444 2.01013 0.444C1.63813 0.444 1.31413 0.576 1.05013 0.84C0.786125 1.092 0.654125 1.416 0.654125 1.788C0.654125 2.16 0.786125 2.484 1.05013 2.748C1.31413 3.012 1.63813 3.144 2.01013 3.144C2.38213 3.144 2.70613 3.012 2.95813 2.748Z" fill="#667479" />
-                                                </svg>
-                                            </span>
-                                            <span className="flex items-center h-[18px] gap-1.5 ">
-                                                <span className="font-medium text-[12px] xl:font-normal xl:text-[16px]">Age: </span>
-                                                <span className="font-bold text-[12px] xl:text-[16px] ">02 months</span>
-                                            </span>
-                                        </span>
-                                        <span className="w-full h-[24px] text-neutral-100 font-bold leading-[24px] xl:leading-[20px] tracking-[0] text-[16px] xl:text-[14px]">6.900.000 VND</span>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                         {/* pargination */}
                         <div className="flex justify-center w-full h-full">

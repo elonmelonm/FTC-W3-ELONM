@@ -6,7 +6,7 @@ export function Header() {
         <>
 
             {/* header en desktop */}
-            <header className="absolute top-0 left-0 z-10 hidden xl:flex lg:flex-row lg:justify-between h-[100px] bg-transparent px-[130px] py-7 ">
+            <header className="absolute top-0 left-0 z-10 hidden xl:flex lg:flex-row lg:justify-between h-[100px] gap-9 bg-transparent px-[130px] py-7 ">
                 <div className="flex items-center lg:w-[529px] h-10 gap-12 ">
                     <img className='w-[115px] z-20 ' src={Logo} alt="" />
                     <div className='flex w-[366px] h-6 gap-12 items-center '>
