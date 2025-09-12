@@ -1,5 +1,4 @@
 import { Adoption } from "../components/Adoption";
-import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
 import { Knowledge } from "../components/Knowledge";
 import { OneMoreFriend } from "../components/OneMoreFriend";

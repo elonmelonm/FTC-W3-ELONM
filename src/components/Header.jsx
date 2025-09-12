@@ -1,8 +1,5 @@
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Logo from '../assets/Frame.png'
-import { Home } from '../pages/home'
-import { About } from '../pages/About'
-import { Footer } from './Footer'
 
 export function Header() {
     return (
