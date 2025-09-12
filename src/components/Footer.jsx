@@ -2,7 +2,7 @@ import Logo from '../assets/Frame.png'
 
 export function Footer() {
     return (
-        <div className="flex flex-col w-full h-[598px] lg:h-[440px] px-4 md:px-16 lg:px-16 xl:px-[130px] pt-10 lg:pt-[80px] pb-5 lg:pb-10 bg-brand-gradient gap-10">
+        <div className="flex flex-col w-full h-[598px] rounded-t-[40px]  lg:h-[440px] px-4 md:px-16 lg:px-16 xl:px-[130px] pt-10 lg:pt-[80px] pb-5 lg:pb-10 bg-brand-gradient gap-10">
             <div className="flex flex-col h-[388px] lg:h-full border-b border-neutral-20 pb-10 lg:pb-0 gap-10">
                 <div className="flex flex-col lg:flex-row h-[244px] lg:h-[136px] p-4 lg:p-8 bg-primary rounded-[16px] gap-5 ">
                     <p className="flex flex-row h-16 lg:w-[389px] lg:h-[72px] text-neutral-00 font-bold text-[24px] leading-[36px] ">

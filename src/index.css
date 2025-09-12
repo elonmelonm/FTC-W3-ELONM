@@ -36,6 +36,9 @@
     #D2D2D2 100%
   );
 
+  --custom-shadow: 0px -6px 6px 0px #0000000F;
+
+
   --font-gilroy: "Gilroy", sans-serif;
 }
 
@@ -70,4 +73,8 @@
 
 @utility bg-split {
   background: var(--bg-split);
+}
+
+@utility custom-shadow {
+  box-shadow: var(--custom-shadow);
 }
