@@ -1,7 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom"
 import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
-import { Home } from "./pages/home"
+import { Home } from "./pages/Home"
 import { About } from "./pages/About"
 import { Category } from "./pages/Category"
 import { CategoryDetail } from "./pages/CategoryDetail"
