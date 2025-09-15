@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import Logo from '../assets/Frame.png'
+import { useState } from 'react';
 
 export function Header() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    console.log('effzff: ', menuOpen)
     return (
         <>
 
@@ -10,10 +13,10 @@ export function Header() {
                 <div className="flex items-center lg:w-[529px] h-10 gap-12 ">
                     <img className='w-[115px] z-20 ' src={Logo} alt="" />
                     <div className='flex w-[366px] h-6 gap-12 items-center '>
-                        <Link to="/" className='w-11 h-6 text-primary font-bold size-4 '>Home</Link>
-                        <Link to="/category" className='w-[71px] h-6 text-primary font-bold size-4 '>Category</Link>
-                        <Link to="/about" className='w-[46px] h-6 text-primary font-bold size-4 '>About</Link>
-                        <div className='w-[61px] h-6 text-primary font-bold size-4 '>Contact</div>
+                        <Link to="/" className='w-11 h-6 text-primary font-bold size-4 hover:text-primary-40 '>Home</Link>
+                        <Link to="/category" className='w-[71px] h-6 text-primary font-bold size-4 hover:text-primary-40 '>Category</Link>
+                        <span className='w-[46px] h-6 text-primary font-bold size-4 hover:text-primary-40 '>About</span>
+                        <div className='w-[61px] h-6 text-primary font-bold size-4 hover:text-primary-40 '>Contact</div>
                     </div>
                 </div>
                 <div className="flex lg:w-[615px] h-11 gap-3.5 ">
@@ -23,8 +26,8 @@ export function Header() {
                         </svg>
                         <input className='' type="text" placeholder='Search something here!' />
                     </div>
-                    <button className='w-[203px] h-11 items-center rounded-[57px] bg-primary px-6 gap-2.5'>
-                        <span className='font-medium size-4 text-neutral-00'>Join the Community</span>
+                    <button className='w-[203px] h-11 items-center rounded-[57px] text-neutral-00 hover:text-primary bg-primary hover:bg-neutral-10 cursor-pointer px-6 gap-2.5'>
+                        <span className='font-medium size-4 '>Join the Community</span>
                     </button>
                     <div className='flex w-[104px] h-11 pt-2.5 pb-2  gap-1'>
                         <div className='flex w-[60px] h-[23px] gap-1.5 '>
@@ -50,10 +53,18 @@ export function Header() {
 
             {/* header en mobile & tablet */}
             <header className='flex xl:hidden z-10 items-center justify-between h-[57px] bg-transparent absolute top-[33px] w-full pr-3.5 pl-2.5 pt-0.5 md:px-16'>
-                <span>
-                    <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.6665 23.1667H25.3332M6.6665 16.5H25.3332M6.6665 9.83334H25.3332" stroke="#00171F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                <span onClick={() => setMenuOpen(!menuOpen)} className="focus:outline-none">
+                    { !menuOpen && (
+                        <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.6665 23.1667H25.3332M6.6665 16.5H25.3332M6.6665 9.83334H25.3332" stroke="#00171F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>)
+                    }
+                    { menuOpen && (
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18" stroke="#00171F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 6L18 18" stroke="#00171F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    )}
                 </span>
                 <img src={Logo} alt="" />
                 <span>
@@ -62,6 +73,21 @@ export function Header() {
                     </svg>
                 </span>
             </header>
+
+            {/* Mobile menu dropdown */}
+            {menuOpen && (
+                    <div className="xl:hidden absolute top-[100px] left-0 w-full h-full border-b z-10 border-[#FFFFFF29] animate-slideDown">
+                        <div className="flex flex-col gap-4 px-4 justify-center bg-brand-gradient rounded-2xl h-[50%] items-center pt-2 text-primary-0">
+                            <Link to="/" className='w-11 h-6 text-primary font-bold size-4 hover:text-primary-40 '>Home</Link>
+                            <Link to="/category" className='w-[71px] h-6 text-primary font-bold size-4 hover:text-primary-40 '>Category</Link>
+                            <span className='w-[46px] h-6 text-primary font-bold size-4 hover:text-primary-40 '>About</span>
+                            <div className='w-[61px] h-6 text-primary font-bold size-4 hover:text-primary-40 '>Contact</div>
+                            <button className='w-[203px] h-11 items-center rounded-[57px] bg-primary px-6 gap-2.5'>
+                                <span className='font-medium size-4 text-neutral-00'>Join the Community</span>
+                            </button>
+                        </div>
+                    </div>
+            )}
         </>
     )
 }

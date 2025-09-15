@@ -8,8 +8,8 @@ export function Knowledge() {
                 <span className="w-[145px] h-[24px] text-[#000000] font-medium leading-[24px] tracking-[0] text-[16px]">You already know ?</span>
                 <span className="w-full h-[36px] font-bold text-primary leading-[36px] tracking-[0] text-[24px]">Useful pet knowledge</span>
             </div>
-            <button className='hidden xl:flex items-center absolute right-0 bottom-0 w-[151px] h-12 border rounded-[57px] px-7 gap-2 '>
-                <span className='text-primary w-[67px] h-6 font-medium leading-[20px] tracking-[0] text-[13px] align-bottom '>View more</span>
+            <button className='hidden text-primary xl:flex items-center absolute right-0 bottom-0 w-[151px] h-12 border rounded-[57px] px-7 gap-2 cursor-pointer'>
+                <span className='w-[67px] h-6 font-medium leading-[20px] tracking-[0] text-[13px] align-bottom '>View more</span>
                 <span>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.33337 6.66666L11.6667 9.99999L8.33337 13.3333" stroke="#003459" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

@@ -25,11 +25,11 @@ export function Adoption() {
                     it will be love you back unconditionally.
                 </p>
                 <div className="flex flex-row mt-4 gap-5">
-                    <button className='flex items-center bg-primary w-[163px] h-12 border rounded-[57px] px-7 gap-2 '>
-                        <span className='text-neutral-00 w-[92px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>Explore Now</span>
+                    <button className='flex items-center text-neutral-00 bg-primary hover:bg-transparent hover:text-primary w-[163px] h-12 border rounded-[57px] px-7 gap-2 cursor-pointer'>
+                        <span className='w-[92px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>Explore Now</span>
                     </button>
-                    <button className='flex items-center w-[161px] h-12 border rounded-[57px] px-7 gap-2 '>
-                        <span className='text-primary w-[73px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>View Intro</span>
+                    <button className='flex items-center text-primary w-[161px] h-12 border rounded-[57px] px-7 gap-2 cursor-pointer'>
+                        <span className='w-[73px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>View Intro</span>
                         <span className="rounded-full border">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 7V13L13 10L8 7Z" fill="#003459" stroke="#003459" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

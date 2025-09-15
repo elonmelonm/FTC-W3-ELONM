@@ -10,8 +10,8 @@ export function WhatsNew() {
                 <span className="w-[91px] h-[24px] text-[#000000] font-medium leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">Whats new?</span>
                 <span className="w-full h-[36px] font-bold text-primary leading-[36px] tracking-[0] text-[20px] xl:text-[24px]">Take a look at some of our pets</span>
             </div>
-            <button className='lg:flex items-center hidden absolute right-0 bottom-0 w-[151px] h-12 border rounded-[57px] px-7 gap-2 '>
-                <span className='text-primary w-[67px] h-6 font-medium leading-[20px] tracking-[0] text-[13px] align-bottom '>View more</span>
+            <button className='lg:flex items-center text-primary hidden absolute right-0 bottom-0 w-[151px] h-12 border rounded-[57px] px-7 gap-2 cursor-pointer'>
+                <span className=' w-[67px] h-6 font-medium leading-[20px] tracking-[0] text-[13px] align-bottom '>View more</span>
                 <span>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.33337 6.66666L11.6667 9.99999L8.33337 13.3333" stroke="#003459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -21,13 +21,13 @@ export function WhatsNew() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 xl:gap-5 ">
             {animals.map((animal, index) => (
-                <div key={index} className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 cursor-pointer">
+                <div key={index} className="w-full h-[317px] xl:h-[378px] bg-neutral-00 p-2 cursor-pointer">
                     <img 
-                        className="min-w-[169px] h-[169px] xl:w-[264px] xl:h-[264px] rounded-[10px] object-cover" 
+                        className="min-w-[169px] h-[169px] xl:w-full xl:h-[264px] rounded-[10px] object-cover" 
                         src={animal.image} 
                         alt={animal.name} 
                     />
-                    <div className="min-w-[169px] h-[124px] xl:w-[264px] xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
+                    <div className="min-w-[169px] h-[124px] xl:w-full xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
                         <div className="flex flex-col min-w-[161px] h-[84px] xl:w-[248px] xl:h-[70px] gap-1 ">
                             <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">
                                 {animal.sku} - {animal.name}

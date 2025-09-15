@@ -29,7 +29,7 @@ function App() {
               <div className='flex w-[366px] h-6 gap-12 items-center '>
                 <Link to="/" className='w-11 h-6 text-primary font-bold size-4 '>Home</Link>
                 <Link to="/category" className='w-[71px] h-6 text-primary font-bold size-4 '>Category</Link>
-                <Link to="/about" className='w-[46px] h-6 text-primary font-bold size-4 '>About</Link>
+                <span className='w-[46px] h-6 text-primary font-bold size-4 '>About</span>
                 <div className='w-[61px] h-6 text-primary font-bold size-4 '>Contact</div>
               </div>
             </div>
@@ -95,7 +95,6 @@ function App() {
       <main className="flex-1 relative z-0">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
           <Route path="/category" element={<Category />} />
           <Route path="/category-detail" element={<CategoryDetail />} />
         </Routes>
