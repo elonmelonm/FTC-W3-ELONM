@@ -1,4 +1,6 @@
 import Image from "../assets/dcc94436190409de921d3586c62ceebc4d4890f1.png";
+// eslint-disable-next-line no-unused-vars
+import * as motion from "motion/react-client"
 
 export function Adoption() {
   return (
@@ -6,7 +8,10 @@ export function Adoption() {
         <div className="relative overflow-hidden rounded-[20px] h-[378px] bg-[#FFB775] ">
             <span className="w-[782.29px] h-[635px] bg-secondary-40 rounded-[99px] rotate-[-25.77deg] absolute top-[-220px] left-[-204px] "></span>
             <span className="w-[787.54px] h-[787.54px] bg-brand-gradient rounded-l-[99px] rotate-[151.75deg] opacity-[30%] absolute top-[158.72px] left-[594.78px] "></span>
-            <img className="w-[538.53px] h-[358.79px] scale-x-[-1] rotate-[60.93deg] absolute top-[36px] right-[-52.48px] xl:right-[22.48px] " src={Image} alt="" />
+            <motion.img initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="w-[538.53px] h-[358.79px] scale-x-[-1] rotate-[60.93deg] absolute top-[36px] right-[-52.48px] xl:right-[22.48px] " src={Image} alt="" />
 
             <div className="flex flex-col absolute w-[403px] top-[64px] lg:left-[45px] xl:left-[85px] gap-2">
                 <div className="flex flex-col w-[448px] h-[132px] gap-1">
@@ -25,10 +30,10 @@ export function Adoption() {
                     it will be love you back unconditionally.
                 </p>
                 <div className="flex flex-row mt-4 gap-5">
-                    <button className='flex items-center text-neutral-00 bg-primary hover:bg-transparent hover:text-primary w-[163px] h-12 border rounded-[57px] px-7 gap-2 cursor-pointer'>
+                    <motion.button whileHover={{ scale: 1.1 }} className='flex items-center text-neutral-00 bg-primary hover:bg-transparent hover:text-primary w-[163px] h-12 border rounded-[57px] px-7 gap-2 cursor-pointer'>
                         <span className='w-[92px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>Explore Now</span>
-                    </button>
-                    <button className='flex items-center text-primary w-[161px] h-12 border rounded-[57px] px-7 gap-2 cursor-pointer'>
+                    </motion.button>
+                    <motion.button whileHover={{ scale: 1.1 }} className='flex items-center text-primary w-[161px] h-12 border rounded-[57px] px-7 gap-2 cursor-pointer'>
                         <span className='w-[73px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>View Intro</span>
                         <span className="rounded-full border">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +41,7 @@ export function Adoption() {
                             </svg>
 
                         </span>
-                    </button>
+                    </motion.button>
                 </div>
             </div>
         </div>

@@ -1,30 +1,67 @@
 import Image from '../assets/035a16de8e1aa9a0522d0cebb4144a5ceda0344a.png'
 import Rectangle2 from '../assets/Rectangle 2.png'
 import Logo from '../assets/Frame.png'
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion"
 
 export function Hero() {
   return (
     <div className="relative z-0 items-center font-[var(--font-gilroy)] overflow-hidden bg-brand-gradient minw-[414px] md:w-full min-h-[623p] min-h-[794px] lg:w-full lg:min-h-[695px] rounded-b-[20px] ">
         {/* rectangle9 */}
-        <span className="w-[634.99px] h-[634.99px] bg-secondary rounded-[99px] rotate-[25.23deg] absolute top-[-597px] left-[-235px] z-0 "></span>
+        <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="w-[634.99px] h-[634.99px] bg-secondary rounded-[99px] rotate-[25.23deg] absolute top-[-597px] left-[-235px] z-0 "></motion.span>
         {/* rectangle3 */}
-        <span className="w-[67.10330080821123px] h-[67.10330080821123px] hidden lg:block bg-secondary rounded-[20px] rotate-[25.23deg] absolute top-[163px] left-[112px] z-0 "></span>
+        <motion.span 
+        initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="w-[67.10330080821123px] h-[67.10330080821123px] hidden lg:block bg-secondary rounded-[20px] rotate-[25.23deg] absolute top-[163px] left-[112px] z-0 "></motion.span>
         {/* rectangle8 */}
-        <span className="w-[528.98px] h-[528.98px] bg-secondary rounded-[99px] rotate-[56.47deg] absolute top-[664px] right-[884.91px]  "></span>
+        <motion.span 
+        initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="w-[528.98px] h-[528.98px] bg-secondary rounded-[99px] rotate-[56.47deg] absolute top-[664px] right-[884.91px]  "></motion.span>
         {/* rectangle1 */}
-        <span className="w-[528.98px] h-[528.98px] bg-primary rounded-t-[99px] rotate-[9.35deg] absolute top-[496.2px] right-[-190px] md:right-[0px] lg:top-[298px] lg:right-[10.23px] xl:top-[298px] xl:right-[348.23px] "></span>
+        <motion.span 
+        initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="w-[528.98px] h-[528.98px] bg-primary rounded-t-[99px] rotate-[9.35deg] absolute top-[496.2px] right-[-190px] md:right-[0px] lg:top-[298px] lg:right-[10.23px] xl:top-[298px] xl:right-[348.23px] "></motion.span>
         {/* rectangle2 */}
-        <span className="w-[635px] h-[635px] bg-secondary rounded-t-[99px] rotate-[25.23deg] absolute top-[496.2px] right-[-320px] md:right-[-150px] lg:top-[280px] lg:right-[-163.91px] xl:right-[163.91px] "></span>
+        <motion.span 
+        initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="w-[635px] h-[635px] bg-secondary rounded-t-[99px] rotate-[25.23deg] absolute top-[496.2px] right-[-320px] md:right-[-150px] lg:top-[280px] lg:right-[-163.91px] xl:right-[163.91px] "></motion.span>
         {/* rectangle6 */}
-        <span className="w-4 h-4 lg:w-[27.5px] lg:h-[27.5px] bg-secondary rounded-[4px] lg:rounded-[9px] rotate-[22.85deg] absolute top-[210px] left-[305px] md:left-[515px] lg:left-[728px] z-0 "></span>
+        <motion.span 
+        initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="w-4 h-4 lg:w-[27.5px] lg:h-[27.5px] bg-secondary rounded-[4px] lg:rounded-[9px] rotate-[22.85deg] absolute top-[210px] left-[305px] md:left-[515px] lg:left-[728px] z-0 "></motion.span>
         {/* rectangle7 */}
-        <span className="w-3 h-3 lg:w-[21.47px] lg:h-[21.47px] bg-primary rounded-[4px] lg:rounded-[6px] rotate-[43deg] absolute left-[302px] top-[219px] md:left-[514px] lg:left-[727px] z-0 "></span>
+        <motion.span 
+        initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="w-3 h-3 lg:w-[21.47px] lg:h-[21.47px] bg-primary rounded-[4px] lg:rounded-[6px] rotate-[43deg] absolute left-[302px] top-[219px] md:left-[514px] lg:left-[727px] z-0 "></motion.span>
         {/* rectangle5 */}
-        <span className="w-[14px] h-[14px] lg:w-[14.63px] lg:h-[14.63px] bg-secondary rounded-[4px] lg:rounded-[4px] rotate-[20.79deg] absolute top-[190px] left-[360px] md:top-[170px] md:left-[600px] lg:left-[757px] z-0 "></span>
+        <motion.span 
+        initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="w-[14px] h-[14px] lg:w-[14.63px] lg:h-[14.63px] bg-secondary rounded-[4px] lg:rounded-[4px] rotate-[20.79deg] absolute top-[190px] left-[360px] md:top-[170px] md:left-[600px] lg:left-[757px] z-0 "></motion.span>
         {/* image */}
-        <span className='w-[580px] lg:w-[944px] h-[693px] absolute top-[408px] left-[-75px] md:left-[95px] lg:top-[84px] lg:left-[250px] xl:top-[84px] xl:left-[520px] '>
+        <motion.span initial={{ x: 800, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className='w-[580px] lg:w-[944px] h-[693px] absolute top-[408px] left-[-75px] md:left-[95px] lg:top-[84px] lg:left-[250px] xl:top-[84px] xl:left-[520px] '>
             <img src={Image} alt="" />
-        </span>
+        </motion.span>
         {/* header en desktop */}
         {/* <header className="hidden xl:flex lg:flex-row lg:justify-between h-[100px] bg-transparent px-[130px] py-7 ">
             <div className="flex items-center lg:w-[529px] h-10 gap-12 ">
@@ -84,26 +121,30 @@ export function Hero() {
         </header> */}
 
         {/* hero */}
-        <div className="flex flex-col absolute sm:w-[380px] xl:w-[480px] top-[139px] left-[16px] md:top-[139px] md:left-[216px] lg:top-[150px] lg:left-[125px] gap-6">
+        <motion.div 
+            initial={{ x: -700, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col absolute sm:w-[380px] xl:w-[480px] top-[139px] left-[16px] md:top-[139px] md:left-[216px] lg:top-[150px] lg:left-[125px] gap-6">
             <div className="flex flex-col w-full h-[102px] xl:h-[132px] gap-1">
                 <span className='text-primary-80 text-[40px] md:text-[46px] xl:text-[60px] h-[60px] xl:h-[68px] font-bold '>One More Friend</span>
                 <span className='text-primary-80 text-[28px] xl:text-[46px] h-[38px] xl:h-[60px] font-bold '>Thousands more fun!</span>
             </div>
             <p className='w-full h-[54px] xl:h-[72px] text-[12px] xl:text-[16px] font-medium text-neutral-80 '>Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!</p>
             <div className="flex flex-row gap-5">
-                <button className='flex items-center w-[161px] text-primary w-[73px] h-12 border rounded-[57px] cursor-pointer px-7 gap-2 hover:bg-neutral-20 hover:text-neutral-00 '>
+                <motion.button whileHover={{ scale: 1.1 }} className='flex items-center w-[161px] text-primary w-[73px] h-12 border rounded-[57px] cursor-pointer px-7 gap-2 '>
                     <span className=' h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>View Intro</span>
                     <span>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10 9V15L15 12L10 9Z" fill="#003459" stroke="#003459" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </span>
-                </button>
-                <button className='flex items-center text-neutral-00 bg-primary w-[163px] h-12 border rounded-[57px] px-7 gap-2 hover:bg-transparent hover:text-primary cursor-pointer'>
+                </motion.button>
+                <motion.button whileHover={{ scale: 1.1 }} className='flex items-center text-neutral-00 bg-primary w-[163px] h-12 border rounded-[57px] px-7 gap-2 hover:bg-transparent hover:text-primary cursor-pointer'>
                     <span className=' w-[92px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>Explore Now</span>
-                </button>
+                </motion.button>
             </div>
-        </div>
+        </motion.div>
     </div>
   );
 }

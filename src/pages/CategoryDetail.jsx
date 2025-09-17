@@ -2,6 +2,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Image from "../assets/ed983856e3a6954a2b20e00d7381454e58aa5f21.png";
 import { animals, lovelycustomers } from "../data";
 import { useEffect, useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import * as motion from "motion/react-client"
 
 export function CategoryDetail() {
   const location = useLocation();
@@ -85,12 +87,13 @@ export function CategoryDetail() {
       <div className="flex flex-col px-4 md:px-16 xl:px-[130px] gap-5 ">
         <div className="xl:py-[22px] xl:pl-5 xl:pr-[49px] flex flex-col xl:flex-row gap-[34px] xl:border border-neutral-10 rounded-[20px]  ">
           <div className="flex flex-col gap-[17px] ">
-            <div className="hidden xl:flex overflow-x-hidden flex-col mb-2.5 gap-3">
+            <div className="hidden xl:flex overflow-hidden flex-col mb-2.5 gap-3">
               <img className="xl:max-w-[560px] h-[476px] rounded-[10px] " src={mainImage} alt="" />
               <div className="flex flex-row gap-3">
                 {animal.gallery && animal.gallery.map((image, index) => (
-                <div 
+                <motion.div 
                     key={index} 
+                     whileHover={{ scale: 0.9 }}
                     className={`cursor-pointer rounded-[6px] overflow-hidden ${
                       index === selectedImage 
                         ? "border-[3px] border-secondary" 
@@ -103,7 +106,7 @@ export function CategoryDetail() {
                       alt="" 
                       className="max-w-[94px] h-[94px] object-cover"
                     />
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -265,17 +268,17 @@ export function CategoryDetail() {
             </div>
             {/* les buttons */}
             <div className="flex flex-row md:w-[373px] gap-2 md:gap-[18px]">
-              <button className='flex items-center bg-primary w-[138px] h-11 rounded-[57px] px-7 gap-2 '>
-                  <span className='text-neutral-00 w-[82px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>Contact us</span>
-              </button>
-              <button className='flex items-center w-[200px] md:w-[217px] h-11 border-[2px] border-primary-80 rounded-[57px] px-4 md:pl-6 md:pr-7 gap-2.5 '>
+              <motion.button whileHover={{ scale: 1.1 }} className='flex items-center text-neutral-00 hover:border hover:border-primary hover:text-primary hover:bg-transparent bg-primary w-[138px] h-11 rounded-[57px] px-7 gap-2 '>
+                  <span className=' w-[82px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>Contact us</span>
+              </motion.button>
+              <motion.button whileHover={{ scale: 1.1 }} className='flex items-center w-[200px] md:w-[217px] h-11 border-[2px] border-primary-80 rounded-[57px] px-4 md:pl-6 md:pr-7 gap-2.5 '>
                 <span className="">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M21 14.8V7.19995V7.19666C21 6.07875 21 5.51945 20.7822 5.09204C20.5905 4.71572 20.2841 4.40973 19.9078 4.21799C19.48 4 18.9203 4 17.8002 4H6.2002C5.08009 4 4.51962 4 4.0918 4.21799C3.71547 4.40973 3.40973 4.71572 3.21799 5.09204C3 5.51986 3 6.07985 3 7.19995V18.671C3 19.7367 3 20.2696 3.21846 20.5432C3.40845 20.7813 3.69644 20.9197 4.00098 20.9194C4.35115 20.919 4.76744 20.5861 5.59961 19.9203L7.12357 18.7012C7.44844 18.4413 7.61084 18.3114 7.79172 18.219C7.95219 18.137 8.12279 18.0771 8.29932 18.0408C8.49829 18 8.70652 18 9.12256 18H17.8001C18.9202 18 19.48 18 19.9078 17.782C20.2841 17.5902 20.5905 17.2844 20.7822 16.908C21 16.4806 21 15.9212 21 14.8032V14.8Z" stroke="#002A48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </span>
                 <span className='text-primary-80 w-[129px] h-6 font-bold leading-[24px] tracking-[0] text-[15px] align-bottom '>Chat with Monito</span>
-              </button>
+              </motion.button>
             </div>
             <div className="flex flex-row justify-between gap-2">
               <span className="h-5 text-primary-80 leading-6 font-bold text-[18px] ">Information</span>
@@ -456,9 +459,9 @@ export function CategoryDetail() {
         {/* Our lovely customer */}
         <div className="flex flex-col w-full h-[471px] pb-[26px] pl-4 pt-6 rounded-[20px] ">
           <span className="h-9 font-bold leading-9 mb-3 text-[24px] text-neutral-100 ">Our lovely customer</span>
-          <div className="flex flex-row h-[340px] mb-6 overflow-x-hidden gap-3 ">
+          <div className="flex flex-row h-[340px] mb-6 overflow-hidden gap-3 ">
             {lovelycustomers.map((lovelycustomer, index) => (
-              <img key={index} src={lovelycustomer.image} alt="" className="w-[248px] h-full rounded-[10px] " />
+              <motion.img key={index} whileHover={{ scale: 0.9 }} src={lovelycustomer.image} alt="" className="w-[248px] h-full rounded-[10px] " />
             ))}
           </div>
           <div className="flex flex-row justify-center">
@@ -485,7 +488,7 @@ export function CategoryDetail() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 xl:gap-5 ">
             {animals.map((animal, index) => (
-            <div key={index} className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 cursor-pointer"
+            <motion.div key={index} whileHover={{ scale: 1.1 }} className="w-full h-[317px] xl:w-[280px] xl:h-[378px] bg-neutral-00 p-2 cursor-pointer"
               onClick={() => handleAnimalClick(animal)}
             >
               <img className="min-w-[169px] h-[169px] xl:w-[264px] xl:h-[264px] rounded-[10px] " src={animal.image} alt="" />
@@ -510,7 +513,7 @@ export function CategoryDetail() {
                   <span className="w-full h-[24px] text-neutral-100 font-bold leading-[24px] xl:leading-[20px] tracking-[0] text-[16px] xl:text-[14px]">{animal.price}</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
             ))}
           </div>
         </div>

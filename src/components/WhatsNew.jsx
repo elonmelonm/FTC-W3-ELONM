@@ -1,6 +1,8 @@
 import Image from '../assets/Frame.png'
 import { animals } from '../data'
 // import { animals } from './data'; // Importez les données
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion"
 
 export function WhatsNew() {
   return (
@@ -10,18 +12,18 @@ export function WhatsNew() {
                 <span className="w-[91px] h-[24px] text-[#000000] font-medium leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">Whats new?</span>
                 <span className="w-full h-[36px] font-bold text-primary leading-[36px] tracking-[0] text-[20px] xl:text-[24px]">Take a look at some of our pets</span>
             </div>
-            <button className='lg:flex items-center text-primary hidden absolute right-0 bottom-0 w-[151px] h-12 border rounded-[57px] px-7 gap-2 cursor-pointer'>
+            <motion.button whileHover={{ scale: 1.1 }} className='lg:flex items-center text-primary hidden absolute right-0 bottom-0 w-[151px] h-12 border rounded-[57px] px-7 gap-2 cursor-pointer'>
                 <span className=' w-[67px] h-6 font-medium leading-[20px] tracking-[0] text-[13px] align-bottom '>View more</span>
                 <span>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.33337 6.66666L11.6667 9.99999L8.33337 13.3333" stroke="#003459" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </span>
-            </button>
+            </motion.button>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 xl:gap-5 ">
             {animals.map((animal, index) => (
-                <div key={index} className="w-full h-[317px] xl:h-[378px] bg-neutral-00 p-2 cursor-pointer">
+                <motion.div key={index} whileHover={{ scale: 1.1 }} className="w-full h-[317px] xl:h-[378px] bg-neutral-00 p-2 cursor-pointer">
                     <img 
                         className="min-w-[169px] h-[169px] xl:w-full xl:h-[264px] rounded-[10px] object-cover" 
                         src={animal.image} 
@@ -52,7 +54,7 @@ export function WhatsNew() {
                             </span>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             ))}
         </div>
         <button className='flex justify-center items-center lg:hidden w-full h-12 border rounded-[57px] px-7 gap-2 '>

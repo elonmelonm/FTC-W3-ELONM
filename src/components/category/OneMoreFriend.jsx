@@ -1,4 +1,6 @@
 import Image from "../../assets/63ed2cc97ebd1b80435a9c0d9051f445ecc741d3.png";
+// eslint-disable-next-line no-unused-vars
+import * as motion from "motion/react-client"
 
 export function OneMoreFriend() {
   return (
@@ -30,7 +32,7 @@ export function OneMoreFriend() {
                 </div>
                 <p className='p-2 sm:p-0 w-full h-[54px] text-[12px] font-medium leading-[18px] text-primary md:text-neutral-00 '>Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!</p>
                 <div className="flex flex-row mt-4 gap-2 sm:gap-5 justify-center sm:justify-end">
-                    <button className='flex items-center w-[161px] h-12 border border-primary md:border-neutral-00 rounded-[57px] px-7 gap-2 '>
+                    <motion.button whileHover={{ scale: 1.1 }} className='flex items-center w-[161px] h-12 border border-primary md:border-neutral-00 rounded-[57px] px-7 gap-2 '>
                         <span className='text-primary md:text-neutral-00 w-[73px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>View Intro</span>
                         <span className="rounded-full border-[1.5px] border-primary md:border-neutral-00">
                             <svg className="hidden md:block" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,10 +42,10 @@ export function OneMoreFriend() {
                                 <path d="M8 7V13L13 10L8 7Z" fill="#003459" stroke="#003459" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </span>
-                    </button>
-                    <button className='flex items-center bg-primary md:bg-neutral-00 w-[163px] h-12 border rounded-[57px] px-7 gap-2 '>
+                    </motion.button>
+                    <motion.button whileHover={{ scale: 1.1 }} className='flex items-center bg-primary md:bg-neutral-00 w-[163px] h-12 border rounded-[57px] px-7 gap-2 '>
                         <span className='text-neutral-00 md:text-primary w-[92px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>Explore Now</span>
-                    </button>
+                    </motion.button>
                 </div>
             </div>
         </div>

@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import Logo from '../assets/Frame.png'
+// eslint-disable-next-line no-unused-vars
+import * as motion from "motion/react-client"
 
 export function Footer() {
     return (
@@ -12,9 +14,9 @@ export function Footer() {
                     </p>
                     <div className="flex flex-col lg:flex-row w-full lg:w-[707px] h-[132px] lg:h-[72px] bg-white rounded-[14px] p-3 gap-3">
                         <input className="py-3.5 px-7 w-full h-12 lg:h-full lg:w-2/3 xl:w-[508px] border border-neutral-40 rounded-[8px] " type="text" placeholder="Enter your Email" />
-                        <button className='flex text-neutral-00 justify-center hover:text-primary hover:bg-neutral-10 items-center bg-primary w-full lg:w-[163px] h-12 border rounded-[8px] px-7 gap-2 cursor-pointer'>
+                        <motion.button whileHover={{ scale: 1.1 }}  className='flex text-neutral-00 justify-center hover:text-primary hover:bg-neutral-10 items-center bg-primary w-full lg:w-[163px] h-12 border rounded-[8px] px-7 gap-2 cursor-pointer'>
                             <span className='w-[102px] h-6 font-medium leading-[24px] tracking-[0] text-[15px] align-bottom '>Subcribe Now</span>
-                        </button>
+                        </motion.button>
                     </div>
                 </div>
                 <div className="flex flex-col items-center lg:flex-row w-full h-16 lg:h-full text-[16px] font-medium justify-between pb-10 gap-5 lg:gap-0">

@@ -5,6 +5,8 @@ import Icon4 from "../assets/petsellersicons/e25c6f9e2a2af258ba0090ef77ead6e78ae
 import Icon5 from "../assets/petsellersicons/abf81bf3b261ca3e4e94dccf723b6ed12db2575b.png";
 import Icon6 from "../assets/petsellersicons/a10a1b4370e851524fa4db43a4f7d590708a8d8b.png";
 import Icon7 from "../assets/petsellersicons/d46b554b89025a0019d8f8d0409d4bc87affc11e.png";
+// eslint-disable-next-line no-unused-vars
+import * as motion from "motion/react-client"
 
 export function PetSellers() {
     return (
@@ -14,14 +16,14 @@ export function PetSellers() {
                     <span className="w-[141px] h-[31px] text-[#000000] font-medium leading-[31px] tracking-[0] text-[16px]">Proud to be part of</span>
                     <span className=" h-[36px] font-bold text-primary leading-[36px] tracking-[0] text-[24px]">Pet Sellers</span>
                 </div>
-                <button className='flex text-primary items-center w-[201px] h-11 border-[1.5px] rounded-[57px] px-7 gap-2 cursor-pointer'>
+                <motion.button whileHover={{ scale: 1.1 }} className='flex text-primary items-center w-[201px] h-11 border-[1.5px] rounded-[57px] px-7 gap-2 cursor-pointer'>
                     <span className='w-[117px] h-5 font-medium leading-[20px] tracking-[0] text-[13px] align-bottom '>View all our sellers</span>
                     <span>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8.33337 6.66666L11.6667 9.99999L8.33337 13.3333" stroke="#003459" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </span>
-                </button>
+                </motion.button>
             </div>
             <div className="grid grid-cols-7 gap-5">
                 <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">

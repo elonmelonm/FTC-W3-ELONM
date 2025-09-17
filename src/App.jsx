@@ -7,6 +7,8 @@ import { Category } from "./pages/Category"
 import { CategoryDetail } from "./pages/CategoryDetail"
 import { Link } from 'react-router-dom'
 import Logo from './assets/Frame.png'
+// eslint-disable-next-line no-unused-vars
+import * as motion from 'motion/react-client'
 
 function App() {
   const location = useLocation();
@@ -23,14 +25,17 @@ function App() {
 
       {isCategoryDetailPage && (
         <>
-          <header className="absolute top-0 left-0 z-10 hidden xl:flex lg:flex-row lg:justify-between h-[100px] bg-transparent px-[130px] py-7 ">
+          <motion.div  initial={{ y: -70 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="absolute top-0 left-0 z-10 hidden xl:flex lg:flex-row lg:justify-between h-[100px] gap-9 bg-transparent px-[130px] py-7 ">
             <div className="flex items-center lg:w-[529px] h-10 gap-12 ">
               <img className='w-[115px] z-20 ' src={Logo} alt="" />
               <div className='flex w-[366px] h-6 gap-12 items-center '>
-                <Link to="/" className='w-11 h-6 text-primary font-bold size-4 '>Home</Link>
-                <Link to="/category" className='w-[71px] h-6 text-primary font-bold size-4 '>Category</Link>
-                <span className='w-[46px] h-6 text-primary font-bold size-4 '>About</span>
-                <div className='w-[61px] h-6 text-primary font-bold size-4 '>Contact</div>
+                  <motion.span whileHover={{ scale: 1.1 }} className='w-11 h-6 text-primary font-bold size-4 hover:text-primary-40 '><Link to="/">Home</Link></motion.span>
+                  <motion.span whileHover={{ scale: 1.1 }} className='w-[71px] h-6 text-primary font-bold size-4 hover:text-primary-40 '><Link to="/category">Category</Link></motion.span>
+                  <motion.span whileHover={{ scale: 1.1 }} className='w-[46px] h-6 text-primary font-bold size-4 hover:text-primary-40 '>About</motion.span>
+                  <motion.span whileHover={{ scale: 1.1 }} className='w-[61px] h-6 text-primary font-bold size-4 hover:text-primary-40 '>Contact</motion.span>
               </div>
             </div>
             <div className="flex lg:w-[615px] h-11 gap-3.5 ">
@@ -40,9 +45,9 @@ function App() {
                 </svg>
                 <input className='' type="text" placeholder='Search something here!' />
               </div>
-              <button className='w-[203px] h-11 items-center rounded-[57px] bg-primary px-6 gap-2.5'>
+              <motion.button whileHover={{ scale: 1.1 }} className='w-[203px] h-11 items-center rounded-[57px] bg-primary px-6 gap-2.5 cursor-pointer'>
                 <span className='font-medium size-4 text-neutral-00'>Join the Community</span>
-              </button>
+              </motion.button>
               <div className='flex w-[104px] h-11 pt-2.5 pb-2  gap-1'>
                 <div className='flex w-[60px] h-[23px] gap-1.5 '>
                   <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,9 +68,12 @@ function App() {
                 </svg>
               </div>
             </div>
-          </header>
+          </motion.div>
           {/* // header en mobile & tablet  */}
-          <header className='flex xl:hidden z-10 items-center justify-between h-[57px] bg-transparent absolute top-[33px] w-full pr-3.5 pl-2.5 pt-0.5 md:px-16'>
+          <motion.div initial={{ y: -70 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8 }}
+                className='flex xl:hidden z-10 items-center justify-between h-[57px] bg-transparent absolute top-[33px] w-full pr-3.5 pl-2.5 pt-0.5 md:px-16'>
             <button>
               <svg width="56" height="57" viewBox="0 0 56 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M30.3335 35.5L23.3335 28.5L30.3335 21.5" stroke="#FDFDFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -87,7 +95,7 @@ function App() {
               </svg>
 
             </button>
-          </header>
+          </motion.div>
         </>
       )}
 
