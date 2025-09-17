@@ -10,7 +10,7 @@ import * as motion from "motion/react-client"
 
 export function PetSellers() {
     return (
-        <div className="lg:flex flex-col hidden h-[251px] md:px-16 xl:px-[130px] py-[40px] gap-[15px] ">
+        <div className="lg:flex flex-col hidden overflow-hidden h-[251px] md:px-16 xl:px-[130px] py-[40px] gap-[15px] ">
             <div className="relative flex flex-row justify-between h-[44px] ">
                 <div className="flex flex-row items-center w-[266px] h-[36px] gap-2 ">
                     <span className="w-[141px] h-[31px] text-[#000000] font-medium leading-[31px] tracking-[0] text-[16px]">Proud to be part of</span>
@@ -25,27 +25,52 @@ export function PetSellers() {
                     </span>
                 </motion.button>
             </div>
-            <div className="grid grid-cols-7 gap-5">
-                <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
-                    <img src={Icon1} alt="" />
+            <div className="flex w-[200%] animate-scroll-bounce">
+                <div className="grid grid-cols-7 gap-5">
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon1} alt="" />
+                    </div>
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon2} alt="" />
+                    </div>
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon3} alt="" />
+                    </div>
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon4} alt="" />
+                    </div>
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon5} alt="" />
+                    </div>
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon6} alt="" />
+                    </div>
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon7} alt="" />
+                    </div>
                 </div>
-                <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
-                    <img src={Icon2} alt="" />
-                </div>
-                <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
-                    <img src={Icon3} alt="" />
-                </div>
-                <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
-                    <img src={Icon4} alt="" />
-                </div>
-                <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
-                    <img src={Icon5} alt="" />
-                </div>
-                <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
-                    <img src={Icon6} alt="" />
-                </div>
-                <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
-                    <img src={Icon7} alt="" />
+                <div className="grid grid-cols-7 gap-5">
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon1} alt="" />
+                    </div>
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon2} alt="" />
+                    </div>
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon3} alt="" />
+                    </div>
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon4} alt="" />
+                    </div>
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon5} alt="" />
+                    </div>
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon6} alt="" />
+                    </div>
+                    <div className="flex items-center w-[151.43px] h-[112px] px-4 gap-2.5 ">
+                        <img src={Icon7} alt="" />
+                    </div>
                 </div>
             </div>
         </div>
