@@ -5,7 +5,7 @@ import * as motion from "motion/react-client"
 export function OneMoreFriend() {
   return (
     <div className="px- md:px-16 xl:px-[130px]  ">
-        <div className="flex text-[14px] font-medium leading-[20px] text-neutral-60 mb-[9px] w-[204px] h-6 gap-1.5 ">
+        <div className="flex text-[14px] ml-4 font-medium leading-[20px] text-neutral-60 mb-[9px] w-[204px] h-6 gap-1.5 ">
             <span className="h-5">Home</span>
             <span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
