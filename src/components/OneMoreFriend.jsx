@@ -4,7 +4,7 @@ import * as motion from "motion/react-client"
 
 export function OneMoreFriend() {
   return (
-    <div className="px-4 md:px-16 xl:px-[130px]  ">
+    <div className="px- md:px-16 xl:px-[130px]  ">
         <div className="relative overflow-hidden rounded-[20px] h-[640px] lg:h-[378px] bg-primary ">
             <span className="w-[787.54px] h-[787.54px] bg-primary-80 rounded-t-[99px] rotate-[28.25deg] lg:rotate-[28.25deg] absolute top-[550px] lg:top-[180px] left-[-201px] lg:left-[-401.28px] xl:left-[-201.28px] "></span>
             <span className="w-[787.54px] h-[787.54px] bg-secondary-40 rounded-b-[99px] rotate-[380.41deg] xl:rotate-[25.23deg] absolute top-[-490px] lg:top-[-360px] left-[-255px] md:left-[-155px] lg:left-[406px] xl:left-[606px] "></span>
@@ -12,7 +12,6 @@ export function OneMoreFriend() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }} 
                 className="w-[524px] h-[349px] lg:w-[513px] lg:h-[342px] absolute top-[300px] lg:top-[36px] left-[-10px] lg:left-[-40px] xl:left-[20px] " src={Image} alt="" />
-
             <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

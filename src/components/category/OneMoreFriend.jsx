@@ -4,7 +4,7 @@ import * as motion from "motion/react-client"
 
 export function OneMoreFriend() {
   return (
-    <div className="px-4 md:px-16 xl:px-[130px]  ">
+    <div className="px- md:px-16 xl:px-[130px]  ">
         <div className="flex text-[14px] font-medium leading-[20px] text-neutral-60 mb-[9px] w-[204px] h-6 gap-1.5 ">
             <span className="h-5">Home</span>
             <span>

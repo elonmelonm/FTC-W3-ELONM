@@ -3,8 +3,18 @@ import { animals } from '../data'
 // import { animals } from './data'; // Importez les données
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion"
+import { useNavigate } from 'react-router-dom';
 
 export function WhatsNew() {
+    const navigate = useNavigate(); 
+
+    // Fonction pour gérer le clic sur un animal
+    const handleAnimalClick = (animal) => {
+        // Navigation vers la page de détail avec les données de l'animal
+        navigate('/category-detail', { 
+            state: { animal } // Passage des données via l'état de navigation
+        });
+    };
   return (
     <div className="relative flex flex-col w-full min-h-[400px] xl:min-h-[200px] px-4 md:px-16 xl:px-[130px] py-10 xl:py-[60px] gap-7 ">
         <div className="relative flex flex-col xl:flex-row">
@@ -23,9 +33,11 @@ export function WhatsNew() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 xl:gap-5 ">
             {animals.map((animal, index) => (
-                <motion.div key={index} whileHover={{ scale: 1.1 }} className="w-full h-[317px] xl:h-[378px] bg-neutral-00 p-2 cursor-pointer">
+                <motion.div key={index} whileHover={{ scale: 1.1 }} className="w-full h-[317px] xl:h-[378px] bg-neutral-00 p-2 cursor-pointer"
+                    onClick={() => handleAnimalClick(animal)}
+                >
                     <img 
-                        className="min-w-[169px] h-[169px] xl:w-full xl:h-[264px] rounded-[10px] object-cover" 
+                        className="min-w-full h-[169px] xl:w-full xl:h-[264px] rounded-[10px] object-cover" 
                         src={animal.image} 
                         alt={animal.name} 
                     />

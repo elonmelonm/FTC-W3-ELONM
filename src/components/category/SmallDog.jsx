@@ -251,7 +251,7 @@ export function SmallDog() {
                                 <motion.div key={index} whileHover={{ scale: 1.1 }} className="w-full h-[317px] xl:w-full xl:min-h-[378px] bg-neutral-00 p-2 cursor-pointer"
                                     onClick={() => handleAnimalClick(animal)}
                                 >
-                                    <img className="min-w-[169px] h-[169px] xl:w-full xl:min-h-[264px] rounded-[10px] " src={animal.image} alt="" />
+                                    <img className="w-full h-[169px] xl:w-full xl:min-h-[264px] rounded-[10px] " src={animal.image} alt="" />
                                     <div className="min-w-[169px] h-[124px] xl:w-[264px] xl:h-[98px] p-1 xl:pt-2 xl:px-2 xl:pb-5 gap-4 ">
                                         <div className="flex flex-col min-w-[161px] h-[84px] xl:w-[248px] xl:h-[70px] gap-1 ">
                                             <span className="w-full h-[40px] xl:h-[24px] text-neutral-100 font-bold leading-[20px] xl:leading-[24px] tracking-[0] text-[14px] xl:text-[16px]">{animal.sku} - {animal.name}</span>
