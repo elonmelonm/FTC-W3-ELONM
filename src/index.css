@@ -1,8 +1,40 @@
 @import "tailwindcss";
 
-
+/* ---------- Police Gilroy (SVN-Gilroy dans la maquette) ---------- */
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/fonts/Gilroy-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/fonts/Gilroy-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/fonts/Gilroy-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* La maquette utilise aussi « XBold » (800) : on le sert avec le Bold. */
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/fonts/Gilroy-Bold.ttf") format("truetype");
+  font-weight: 700 800;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
+  --font-sans: "Gilroy", ui-sans-serif, system-ui, sans-serif;
+  --font-gilroy: "Gilroy", ui-sans-serif, system-ui, sans-serif;
+
   --color-primary: #003459;
   --color-primary-40: #0078CD;
   --color-primary-60: #00528C;
@@ -36,55 +68,73 @@
     #D2D2D2 100%
   );
 
-  --custom-shadow: 0px -6px 6px 0px #0000000F;
-  --custom-shadow-1: 0px 4px 28px -2px #0000000F;
-
-
-  --font-gilroy: "Gilroy", sans-serif;
-
-  @keyframes scroll {
-    0% {
+  @keyframes marquee {
+    from {
       transform: translateX(0);
     }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  @keyframes scroll-bounce {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
+    to {
       transform: translateX(-50%);
     }
   }
 }
 
-@font-face {
-  font-family: "Gilroy";
-  src: url("./assets/fonts/Gilroy-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    color: var(--color-neutral-100);
+    background-color: var(--color-neutral-00);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  button,
+  [role="button"],
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary-40);
+    outline-offset: 2px;
+  }
+
+  /* Champs numériques : on garde le rendu de la maquette, sans flèches natives. */
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
-/* @font-face {
-  font-family: "Gilroy";
-  src: url("./assets/fonts/Gilroy-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
+
+/* Conteneur de page : 1180px de contenu à partir de 1280px (130px de marge à 1440px). */
+@utility page-container {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 1280px;
+  padding-inline: 16px;
+
+  @media (width >= 48rem) {
+    padding-inline: 40px;
+  }
+
+  @media (width >= 80rem) {
+    padding-inline: 50px;
+  }
 }
-@font-face {
-  font-family: "Gilroy";
-  src: url("./assets/fonts/Gilroy-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Gilroy";
-  src: url("./assets/fonts/Gilroy-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-} */
 
 @utility bg-brand-gradient {
   background: var(--bg-gradient-brand);
@@ -94,18 +144,33 @@
   background: var(--bg-split);
 }
 
-@utility custom-shadow {
-  box-shadow: var(--custom-shadow);
+/* Ombre des cartes (Product Card / Card Blog dans la maquette). */
+@utility card-shadow {
+  filter: drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.08));
 }
 
-@utility custom-shadow-1 {
-  box-shadow: var(--custom-shadow-1);
+@utility animate-marquee {
+  animation: marquee 40s linear infinite;
 }
 
-@utility animate-scroll {
-  animation: scroll 60s linear infinite;
+@utility scrollbar-none {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-@utility animate-scroll-bounce {
-  animation: scroll-bounce 20s linear infinite alternate;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
